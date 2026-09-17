@@ -116,8 +116,10 @@ html[data-theme="dark"] { --hairline: rgba(255,255,255,.16); }
    (Light values live in brand.css; only the dark values change here.) */
 html[data-theme="dark"] { --control-line: rgba(255,255,255,.35); --track: rgba(255,255,255,.14); }
 
-/* Secondary accent (purple) → lighter so it stays AA on the dark canvas. */
-html[data-theme="dark"] { --accent-2: #C89BF2; }
+/* Secondary accent: Generali has no purple — follow the brand accent (coral-red,
+   already AA on the dark canvas) so icon tiles / secondary accents read red, not
+   purple. Matches light mode, where brand.css sets --accent-2: var(--accent). */
+html[data-theme="dark"] { --accent-2: var(--accent); }
 
 /* Content on an accent/success fill flips to dark ink (those fills lighten in dark). */
 html[data-theme="dark"] { --on-accent: #0E0E0E; }
