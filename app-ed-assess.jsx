@@ -19,7 +19,7 @@ const { useState: oaUseState, useEffect: oaUseEffect, useRef: oaUseRef } = React
 // the bank's own page numbers, so they slot onto pages 2–6 beside the originals.
 // Pages are renumbered contiguously after filtering.
 function oaInitialQuestions() {
-  const EXTRA = ["oq_matrix7", "oq_factor", "oq_csum", "oq_slider", "oq_sbs", "oq_imgmulti", "oq_img", "oq_gslider", "oq_bargrid", "oq_stargrid", "oq_gap", "oq_skill", "oq_pgr", "oq_gslider_dial", "oq_fillgauge", "oq_shapedraw", "oq_captcha"];
+  const EXTRA = ["oq_matrix7", "oq_factor", "oq_csum", "oq_slider", "oq_sbs", "oq_imgmulti", "oq_img", "oq_gslider", "oq_bargrid", "oq_stargrid", "oq_gap", "oq_skill", "oq_pgr", "oq_fillgauge", "oq_shapedraw", "oq_captcha"];
   const list = ((typeof window !== "undefined" && window.LH && LH.openAssessQuestions) || []).filter((q) => /^oq\d+$/.test(q.id) || q.id === "oq_video" || EXTRA.indexOf(q.id) >= 0);
   const pages = [];
   list.forEach((q) => { if (pages.indexOf(q.page) < 0) pages.push(q.page); });
