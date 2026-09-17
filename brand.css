@@ -107,6 +107,11 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); }
      Distinct from --primary so the rail/buttons still use the client primary. */
   --surface-deep: var(--primary);
 
+  /* Report cover gradient — brand red in BOTH themes (dark override darkens it so
+     white cover text stays readable on the dark canvas). */
+  --report-cover-a: var(--primary);
+  --report-cover-b: color-mix(in srgb, var(--primary) 65%, #000);
+
   /* Card / raised surface. Light-mode = white; dark mode overrides to a dark
      elevated surface (see dark-theme.css). Cards read this instead of #fff so
      the whole platform re-themes for dark mode through one token. */

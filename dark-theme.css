@@ -17,6 +17,9 @@ html[data-theme="dark"] {
   --ink:          #E9EEF6;            /* primary text  — ~14:1 on --card     */
   --muted:        #A4B2C6;            /* secondary text — ~7.5:1 on --card   */
   --line:         rgba(255,255,255,.15); /* borders / rules                  */
+  /* Report cover stays brand RED in dark, darkened enough for white text. */
+  --report-cover-a: color-mix(in srgb, var(--primary) 45%, #000);
+  --report-cover-b: color-mix(in srgb, var(--primary) 30%, #000);
 }
 
 /* Client-brand text neutralisation flips to LIGHT ink in dark mode

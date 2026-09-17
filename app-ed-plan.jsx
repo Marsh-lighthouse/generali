@@ -1225,7 +1225,7 @@ function PlReportTab() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 20, paddingTop: 8 }}>
       {[0, 1, 2].map((i) => i === 0 ? (
-        <div key={i} className="ed-report-page" style={{ ...a4, background: "radial-gradient(120% 120% at 15% 0%, rgba(170,27,23,.16), transparent 55%), linear-gradient(150deg, var(--surface-deep), color-mix(in srgb, var(--primary) 65%, #000))", padding: 56, overflow: "hidden", justifyContent: "space-between" }}>
+        <div key={i} className="ed-report-page" style={{ ...a4, background: "radial-gradient(120% 120% at 15% 0%, rgba(170,27,23,.16), transparent 55%), linear-gradient(150deg, var(--report-cover-a), var(--report-cover-b))", padding: 56, overflow: "hidden", justifyContent: "space-between" }}>
           <svg viewBox="0 0 43.17 44.26" width="36" height="37" aria-hidden="true"><polygon fill="#fff" points="42.49 0 21.65 30.43 22.2 30.43 35.07 24.39 35.07 44.26 43.17 44.26 43.17 0 42.49 0" /><polygon fill="#fff" points="0 0 0 44.26 8.1 44.26 8.1 24.4 20.9 30.43 21.52 30.43 .68 0 0 0" /></svg>
           <div>
             <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, letterSpacing: ".14em", textTransform: "uppercase", color: "color-mix(in srgb, var(--primary) 9%, var(--card))", marginBottom: 14 }}>Confidential · For internal use only</div>

@@ -1262,7 +1262,7 @@ function EdIdpFlow({ onExit, onDone, initialStep, onStep }) {
             if (i === 0) {
               // ── Branded dark cover (page 1) ──
               return (
-                <div key={i} className="ed-report-page" style={{ ...a4, background: "radial-gradient(120% 120% at 15% 0%, rgba(170,27,23,.16), transparent 55%), linear-gradient(150deg, var(--surface-deep), color-mix(in srgb, var(--primary) 65%, #000))", padding: "56px 56px", overflow: "hidden", justifyContent: "space-between" }}>
+                <div key={i} className="ed-report-page" style={{ ...a4, background: "radial-gradient(120% 120% at 15% 0%, rgba(170,27,23,.16), transparent 55%), linear-gradient(150deg, var(--report-cover-a), var(--report-cover-b))", padding: "56px 56px", overflow: "hidden", justifyContent: "space-between" }}>
                   <svg viewBox="0 0 43.17 44.26" width="36" height="37" aria-hidden="true" style={{ display: "block" }}>
                     <polygon fill="#fff" points="42.49 0 21.65 30.43 22.2 30.43 35.07 24.39 35.07 44.26 43.17 44.26 43.17 0 42.49 0" />
                     <polygon fill="#fff" points="0 0 0 44.26 8.1 44.26 8.1 24.4 20.9 30.43 21.52 30.43 .68 0 0 0" />
@@ -1312,7 +1312,7 @@ function EdIdpFlow({ onExit, onDone, initialStep, onStep }) {
       {/* Creative chat-assistant section — a live "chat preview" card beside the intro copy.
           (Built from our tokens rather than an external image, so the prototype stays offline-safe.) */}
       <div style={{ display: "flex", gap: 28, alignItems: "stretch", flexWrap: "wrap" }}>
-        <div style={{ flex: "1 1 300px", minWidth: 260, borderRadius: 18, padding: "30px 22px", background: "radial-gradient(120% 120% at 15% 0%, rgba(170,27,23,.16), transparent 55%), linear-gradient(150deg, var(--surface-deep), color-mix(in srgb, var(--primary) 65%, #000))", color: "#fff", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
+        <div style={{ flex: "1 1 300px", minWidth: 260, borderRadius: 18, padding: "30px 22px", background: "radial-gradient(120% 120% at 15% 0%, rgba(170,27,23,.16), transparent 55%), linear-gradient(150deg, var(--report-cover-a), var(--report-cover-b))", color: "#fff", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
           {/* AI-coach illustration (inline SVG, so it works in the offline prototype). */}
           <svg viewBox="0 0 300 232" width="100%" style={{ maxWidth: 300, display: "block" }} aria-hidden="true">
             <circle cx="150" cy="110" r="92" fill="rgba(170,27,23,.07)" />
@@ -1833,7 +1833,7 @@ function EdDevelopmentNew({ onBack, initialMode, idpStep, mnStep, onMode, onStep
       {/* Intro video (system intro-video style) — plays an overview of the IDP,
           then Continue starts the guided flow. */}
       <div onClick={() => setWatched(true)} style={{ position: "relative", width: "100%", paddingBottom: "50%", borderRadius: 16, overflow: "hidden", background: "var(--surface-deep)", marginBottom: 24, cursor: "pointer" }}>
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(120% 120% at 20% 0%, rgba(170,27,23,.22), transparent 55%), linear-gradient(135deg, var(--surface-deep), color-mix(in srgb, var(--primary) 65%, #000))" }} />
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(120% 120% at 20% 0%, rgba(170,27,23,.22), transparent 55%), linear-gradient(135deg, var(--report-cover-a), var(--report-cover-b))" }} />
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12 }}>
           {watched ?
           <div style={{ display: "flex", alignItems: "center", gap: 8, background: "rgba(20,133,61,.92)", padding: "9px 18px", borderRadius: 22 }}>

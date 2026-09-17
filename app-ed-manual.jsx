@@ -412,8 +412,12 @@ function MnManualFlow({ onExit, onDone, initialStep, onStep }) {
   const rows = [];
   MN_CATS.forEach((c, ci) => sel[ci].forEach((name) => rows.push({ name, cat: c.name })));
 
+  // A short branded "creating your plan" loader plays before the plan opens.
+  const [creating, setCreating] = mnUseState(false);
+  const [prog, setProg] = mnUseState(0);
+
   // Build the plan: the chosen skills, each with no development actions yet.
-  const finish = () => {
+  const doFinish = () => {
     const P = window.EdPlan || {};
     const data = MN_CATS.map((c) => ({
       cat: c.name,
@@ -426,14 +430,42 @@ function MnManualFlow({ onExit, onDone, initialStep, onStep }) {
     try { localStorage.setItem("lh-idp-submission", JSON.stringify({ status: "draft", at: Date.now() })); } catch (e) {}
     onDone && onDone();
   };
+  const finish = () => {
+    setCreating(true); setProg(0);
+    [14, 30, 46, 62, 78, 100].forEach((p, i) => setTimeout(() => setProg(p), 360 * (i + 1)));
+    setTimeout(doFinish, 360 * 7);
+  };
 
   return (
     <div style={{ maxWidth: "var(--content-max)", margin: "32px var(--fol-mx) 72px", padding: 0 }}>
+      {creating ? (
+        // Branded creation loader — the spinning ring + brand mark, matching the AI flow.
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "52px 28px", textAlign: "center", maxWidth: 520, width: "100%", margin: "40px auto", boxSizing: "border-box", background: "var(--card)", border: "1px solid " + eLINE, boxShadow: "0 8px 34px rgba(0,15,71,.08)", borderRadius: 18, overflow: "hidden" }}>
+          <div style={{ position: "relative", width: 120, height: 120, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 30 }}>
+            <svg viewBox="0 0 100 100" width="120" height="120" style={{ position: "absolute", inset: 0, animation: "ed-spin 1.15s linear infinite" }} aria-hidden="true">
+              <circle cx="50" cy="50" r="46" fill="none" stroke="var(--action)" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="78 220" />
+              <circle cx="50" cy="50" r="46" fill="none" stroke="var(--action)" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="30 220" strokeDashoffset="-150" opacity="0.5" />
+            </svg>
+            <svg viewBox="0 0 43.17 44.26" width="52" height="53" style={{ overflow: "visible" }} aria-hidden="true">
+              <polygon fill="var(--primary)" points="42.49 0 21.65 30.43 22.2 30.43 35.07 24.39 35.07 44.26 43.17 44.26 43.17 0 42.49 0" />
+              <polygon fill="var(--primary)" points="0 0 0 44.26 8.1 44.26 8.1 24.4 20.9 30.43 21.52 30.43 .68 0 0 0" />
+            </svg>
+          </div>
+          <div style={{ fontFamily: "var(--sans)", fontSize: 21, fontWeight: 700, color: eMID, lineHeight: 1.35, maxWidth: 400, minHeight: 60, display: "flex", alignItems: "center", marginBottom: 12 }}>{prog < 30 ? "Creating your development plan…" : prog < 62 ? "Adding your selected skills…" : prog < 100 ? "Setting up your development actions…" : "Almost ready…"}</div>
+          <div style={{ width: 260, height: 4, background: "rgba(0,15,71,.08)", borderRadius: 3, overflow: "hidden", marginTop: 12 }}>
+            <div style={{ width: prog + "%", height: "100%", background: "var(--action)", borderRadius: 3, transition: "width .5s ease" }} />
+          </div>
+          <div style={{ fontFamily: "var(--sans)", fontSize: 13, color: eMUT, lineHeight: 1.5, maxWidth: 320, marginTop: 22 }}>Hang tight — we're putting your plan together.</div>
+        </div>
+      ) : (
+      <React.Fragment>
       <MnStepper step={step} design={stepDesign} />
       {step === 0 && <MnGettingStarted onNext={() => setStep(1)} />}
       {step === 1 && <MnAddSkills sel={sel} setSel={setSel} onBack={() => setStep(0)} onNext={() => setStep(2)} />}
       {step === 2 && <MnRateSkills rows={rows} ratings={ratings} setRatings={setRatings} onBack={() => setStep(1)} onNext={() => setStep(3)} />}
       {step === 3 && <MnReflect answers={answers} setAnswers={setAnswers} onBack={() => setStep(2)} onFinish={finish} />}
+      </React.Fragment>
+      )}
 
       {/* design switcher, beside the other floating chrome */}
       {ReactDOM.createPortal(
