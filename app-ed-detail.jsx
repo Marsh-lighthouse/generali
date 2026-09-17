@@ -11,7 +11,7 @@ const { useState: edUseState } = React;
 
 const eMID = "var(--primary)",eCREAM = "var(--canvas)",eINK = "var(--ink)",eMUT = "var(--muted)",
   eLINE = "var(--line)",eCARD = "#fff",eBLUE = "var(--accent)",eGOLD = "var(--action)",
-  eSKY = "color-mix(in srgb, var(--primary) 9%, #ffffff)",ePURP = "var(--accent)",eSUCCESS = "var(--success)",eWARN = "#CB7E03",eDANGER = "var(--danger)";
+  eSKY = "color-mix(in srgb, var(--primary) 9%, var(--card))",ePURP = "var(--accent)",eSUCCESS = "var(--success)",eWARN = "#CB7E03",eDANGER = "var(--danger)";
 
 function EdRing2({ pct, size = 18, stroke = 2.5, color = eBLUE, track = "rgba(0,15,71,.12)" }) {
   const r = (size - stroke) / 2,c = 2 * Math.PI * r;
@@ -61,8 +61,8 @@ function EdBtn({ children, primary, small, disabled, onClick, full, dark }) {
 
 // ── status helpers ──
 const edStatusMeta = {
-  complete: { label: "Done", color: "#14853D", bg: "color-mix(in srgb, #14853D 15%, #ffffff)" },
-  progress: { label: "In progress", color: "var(--accent)", bg: "color-mix(in srgb, var(--accent) 15%, #ffffff)" },
+  complete: { label: "Done", color: "#14853D", bg: "color-mix(in srgb, #14853D 15%, var(--card))" },
+  progress: { label: "In progress", color: "var(--accent)", bg: "color-mix(in srgb, var(--accent) 15%, var(--card))" },
   notstarted: { label: "Not started", color: "var(--ink)", bg: "var(--status-neutral-bg)" },
   locked: { label: "Locked", color: "var(--ink)", bg: "var(--status-neutral-bg)" }
 };
@@ -91,7 +91,7 @@ function EdRow({ item, accent, onClick }) {
         <div style={{ display: "flex", alignItems: "center", gap: 9, flexWrap: "wrap" }}>
           <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: eMID }}>{item.name}</span>
           {item.proctored && <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: ePURP, background: "rgba(170,27,23,.10)", padding: "2px 8px", borderRadius: 5, display: "inline-flex", alignItems: "center", gap: 4 }}><I.shield size={12} /> Proctored</span>}
-          {item.hasReport && <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, #ffffff)", padding: "4px 10px", borderRadius: 5 }}>Report ready</span>}
+          {item.hasReport && <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, var(--card))", padding: "4px 10px", borderRadius: 5 }}>Report ready</span>}
         </div>
         {item.desc && <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: eINK, lineHeight: 1.5, marginTop: 3, maxWidth: 460 }}>{item.desc}</div>}
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 7 }}>
@@ -330,7 +330,7 @@ function EdTasks({ prog, onBack, onOpenCenter, onProctored, onOpenAssess, onSche
       <div style={{ position: "absolute", top: -50, right: -50, width: 200, height: 200, borderRadius: "50%", background: "rgba(170,27,23,.07)" }} />
       <div style={{ position: "relative" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
-          <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, #ffffff)", padding: "4px 11px", borderRadius: 6 }}>In progress</span>
+          <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, var(--card))", padding: "4px 11px", borderRadius: 6 }}>In progress</span>
         </div>
         <h1 className="serif" style={{ fontSize: 40, color: "#fff", lineHeight: 1.06, margin: "0 0 12px", maxWidth: 560 }}>{prog.name}</h1>
         <div style={{ display: "flex", alignItems: "center", gap: 28, marginTop: 26, flexWrap: "wrap" }}>
@@ -357,7 +357,7 @@ function EdTasks({ prog, onBack, onOpenCenter, onProctored, onOpenAssess, onSche
   const heroLight =
   <div style={{ background: eCARD, border: "1px solid " + eLINE, borderRadius: 20, padding: "32px 34px", marginBottom: 40 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
-        <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, #ffffff)", padding: "4px 11px", borderRadius: 6 }}>In progress</span>
+        <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, var(--card))", padding: "4px 11px", borderRadius: 6 }}>In progress</span>
       </div>
       <h1 className="serif" style={{ fontSize: 40, color: eMID, lineHeight: 1.06, margin: "0 0 12px", maxWidth: 560 }}>{prog.name}</h1>
       <div style={{ display: "flex", alignItems: "center", gap: 28, marginTop: 24, flexWrap: "wrap" }}>
@@ -382,7 +382,7 @@ function EdTasks({ prog, onBack, onOpenCenter, onProctored, onOpenAssess, onSche
 
   const heroMinimal =
   <div style={{ marginBottom: 40 }}>
-      <span style={{ display: "inline-block", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, #ffffff)", padding: "4px 11px", borderRadius: 6, marginBottom: 14 }}>In progress</span>
+      <span style={{ display: "inline-block", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, var(--card))", padding: "4px 11px", borderRadius: 6, marginBottom: 14 }}>In progress</span>
       <h1 className="serif" style={{ fontSize: 40, color: eMID, lineHeight: 1.02, margin: "0 0 24px", maxWidth: 620 }}>{prog.name}</h1>
       <div className="ed-hstats" style={{ display: "flex", alignItems: "center", padding: "4px 0 0" }}>
         {stats.map((m, i) =>
@@ -412,7 +412,7 @@ function EdTasks({ prog, onBack, onOpenCenter, onProctored, onOpenAssess, onSche
       {/* title + inline status chip (state belongs to the program) */}
       <div style={{ display: "flex", alignItems: "center", gap: 13, flexWrap: "wrap", rowGap: 8, marginBottom: 15 }}>
         <h1 className="serif" style={{ fontSize: 40, color: eMID, lineHeight: 1.02, margin: 0, maxWidth: 560 }}>{prog.name}</h1>
-        <span style={{ display: "inline-block", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, #ffffff)", padding: "4px 11px", borderRadius: 6 }}>In progress</span>
+        <span style={{ display: "inline-block", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, var(--card))", padding: "4px 11px", borderRadius: 6 }}>In progress</span>
       </div>
       {/* data line: progress summary leads, then the task breakdown (wraps on mobile) */}
       <div className="ed-hstats" style={{ display: "flex", alignItems: "center", gap: 18, flexWrap: "wrap", rowGap: 10 }}>
@@ -445,11 +445,11 @@ function EdTasks({ prog, onBack, onOpenCenter, onProctored, onOpenAssess, onSche
       <div style={{ flex: 1 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
           <h1 className="serif" style={{ fontSize: 40, color: eMID, lineHeight: 1.04, margin: 0 }}>{prog.name}</h1>
-          <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, #ffffff)", padding: "5px 12px", borderRadius: 6 }}>In progress</span>
+          <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, var(--card))", padding: "5px 12px", borderRadius: 6 }}>In progress</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 13, flexWrap: "wrap" }}>
-          <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, #ffffff)", padding: "5px 12px", borderRadius: 8 }}>{all.length} Total</span>
-          <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, color: "#14853D", background: "color-mix(in srgb, #14853D 15%, #ffffff)", padding: "5px 12px", borderRadius: 8 }}>{done} Done</span>
+          <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, var(--card))", padding: "5px 12px", borderRadius: 8 }}>{all.length} Total</span>
+          <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, color: "#14853D", background: "color-mix(in srgb, #14853D 15%, var(--card))", padding: "5px 12px", borderRadius: 8 }}>{done} Done</span>
           <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, color: ePURP, background: "rgba(170,27,23,.08)", padding: "5px 12px", borderRadius: 8 }}>{prog.pct}% Progress</span>
         </div>
       </div>
@@ -470,7 +470,7 @@ function EdTasks({ prog, onBack, onOpenCenter, onProctored, onOpenAssess, onSche
       {/* title + meta */}
       <div style={{ flex: 1, minWidth: 200 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 7 }}>
-          <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, #ffffff)", padding: "4px 10px", borderRadius: 6 }}>In progress</span>
+          <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, var(--card))", padding: "4px 10px", borderRadius: 6 }}>In progress</span>
         </div>
         <h1 className="serif" style={{ fontSize: 28, color: eMID, lineHeight: 1.05, margin: 0 }}>{prog.name}</h1>
       </div>
@@ -554,7 +554,7 @@ function EdTasks({ prog, onBack, onOpenCenter, onProctored, onOpenAssess, onSche
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginBottom: 4 }}>
                 <h2 className="serif" style={{ fontSize: 21, color: eMID, lineHeight: 1.15, margin: 0 }}>{c.name}</h2>
-                <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, letterSpacing: ".04em", textTransform: "uppercase", color: "#14853D", background: "color-mix(in srgb, #14853D 15%, #ffffff)", padding: "4px 10px", borderRadius: 5 }}>Completed</span>
+                <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, letterSpacing: ".04em", textTransform: "uppercase", color: "#14853D", background: "color-mix(in srgb, #14853D 15%, var(--card))", padding: "4px 10px", borderRadius: 5 }}>Completed</span>
               </div>
               <p style={{ fontFamily: "var(--sans)", fontSize: 15, color: eINK, lineHeight: 1.55, margin: 0, maxWidth: 600 }}>You've completed every activity in this assessment center. Your results have been submitted and are being processed.</p>
             </div>
@@ -1876,7 +1876,7 @@ function ScVideoLive({ setResult, onBack, onNext, vertical, panel, embed, onCapt
       {(vstate === "intro" || vstate === "denied" || vstate === "unsupported") && (
         <div style={media}>
           <div style={overlay}>
-            <span style={{ color: vstate === "intro" ? "color-mix(in srgb, var(--primary) 9%, #ffffff)" : "#FFC9C7", display: "flex" }}>{vstate === "intro" ? <I.cam size={mob ? 30 : 40} /> : <I.alertCircle size={mob ? 30 : 40} />}</span>
+            <span style={{ color: vstate === "intro" ? "color-mix(in srgb, var(--primary) 9%, var(--card))" : "#FFC9C7", display: "flex" }}>{vstate === "intro" ? <I.cam size={mob ? 30 : 40} /> : <I.alertCircle size={mob ? 30 : 40} />}</span>
             <p style={{ fontFamily: "var(--sans)", fontSize: mob ? 13 : 15, lineHeight: 1.5, maxWidth: 480, margin: 0 }}>
               {vstate === "intro" && "Select your microphone and camera, click Record, then read aloud and repeat the sentence appearing at the bottom 3 times."}
               {vstate === "denied" && "Camera and microphone access was blocked. Allow access in your browser's site settings (address-bar icon), then try again."}

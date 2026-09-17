@@ -113,7 +113,7 @@ function EdReportCard({ r, onPreview }) {
         <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 14 }}>
           {r.based.map((b, i) => {
             const isDone = i < r.doneCount;
-            return <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: 5, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, padding: "4px 10px", borderRadius: 5, background: isDone ? "color-mix(in srgb, #14853D 15%, #ffffff)" : "var(--status-neutral-bg)", color: isDone ? "#14853D" : "var(--ink)" }}>{isDone && <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><path d="M5 13l4 4L19 7" /></svg>}{b}</span>;
+            return <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: 5, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, padding: "4px 10px", borderRadius: 5, background: isDone ? "color-mix(in srgb, #14853D 15%, var(--card))" : "var(--status-neutral-bg)", color: isDone ? "#14853D" : "var(--ink)" }}>{isDone && <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><path d="M5 13l4 4L19 7" /></svg>}{b}</span>;
           })}
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: "auto" }}>
@@ -327,7 +327,7 @@ function EdInsights({ onBack, initialPreview }) {
     <div style={{ maxWidth: "var(--content-max)", margin: "36px var(--fol-mx) 72px", padding: 0 }}>
       <h1 className="serif" style={{ fontSize: 40, color: eMID, lineHeight: 1.08, margin: "0 0 8px" }}>Insights</h1>
       <p className="ed-insights-banner" style={{ fontFamily: "var(--sans)", fontSize: 15, color: eINK, lineHeight: 1.7, margin: 0, maxWidth: "none", whiteSpace: "nowrap" }}>
-        <span style={{ display: "inline-block", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, #ffffff)", padding: "4px 10px", borderRadius: 6, marginRight: 9, verticalAlign: "1px", whiteSpace: "nowrap" }}>{availCount} of {reps.length} ready</span>
+        <span style={{ display: "inline-block", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, var(--card))", padding: "4px 10px", borderRadius: 6, marginRight: 9, verticalAlign: "1px", whiteSpace: "nowrap" }}>{availCount} of {reps.length} ready</span>
         Reports unlock automatically as you complete their underlying tasks.
       </p>
 
@@ -501,9 +501,9 @@ function EdScheduling({ onBack, initialCenter, demo, onView }) {
                     <span style={{ fontFamily: "var(--sans)", fontSize: 15, color: eMUT }}>{tzMeta.short}</span>
                     <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: low ? eDANGER : slot.remaining === slot.total ? eSUCCESS : eMUT }}>{slot.remaining}/{slot.total} seats{low ? " — filling fast" : ""}</span>
                     {slot.cancelBefore ? (
-                      <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, #ffffff)", padding: "4px 10px", borderRadius: 5 }}>Cancel OK ({slot.cancelBefore})</span>
+                      <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, var(--card))", padding: "4px 10px", borderRadius: 5 }}>Cancel OK ({slot.cancelBefore})</span>
                     ) : (
-                      <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "#C53532", background: "color-mix(in srgb, #C53532 15%, #ffffff)", padding: "4px 10px", borderRadius: 5 }}>No cancellation</span>
+                      <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "#C53532", background: "color-mix(in srgb, #C53532 15%, var(--card))", padding: "4px 10px", borderRadius: 5 }}>No cancellation</span>
                     )}
                   </div>
                 </div>
@@ -897,7 +897,7 @@ function EdScheduling({ onBack, initialCenter, demo, onView }) {
                             <span style={{ fontFamily: "var(--sans)", fontSize: 15, color: eMUT, display: "inline-flex", alignItems: "center", gap: 4 }}><I.clock size={13} /> {c.duration}</span>
                           </div>
                         </div>
-                        {bookedInCenter > 0 && <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, color: "#14853D", background: "color-mix(in srgb, #14853D 15%, #ffffff)", padding: "4px 10px", borderRadius: 6, display: "inline-flex", alignItems: "center", gap: 4, flexShrink: 0 }}><I.check size={11} /> {bookedInCenter} booked</span>}
+                        {bookedInCenter > 0 && <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, color: "#14853D", background: "color-mix(in srgb, #14853D 15%, var(--card))", padding: "4px 10px", borderRadius: 6, display: "inline-flex", alignItems: "center", gap: 4, flexShrink: 0 }}><I.check size={11} /> {bookedInCenter} booked</span>}
                       </div>
                       {/* footer sits on the card's bottom edge, so every card in the row lines up */}
                       <div className="ed-sched-foot" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, marginTop: "auto", paddingTop: 12, borderTop: "1px solid " + eLINE }}>

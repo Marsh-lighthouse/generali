@@ -1268,7 +1268,7 @@ function EdIdpFlow({ onExit, onDone, initialStep, onStep }) {
                     <polygon fill="#fff" points="0 0 0 44.26 8.1 44.26 8.1 24.4 20.9 30.43 21.52 30.43 .68 0 0 0" />
                   </svg>
                   <div>
-                    <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, letterSpacing: ".14em", textTransform: "uppercase", color: "color-mix(in srgb, var(--primary) 9%, #ffffff)", marginBottom: 14 }}>Confidential · For internal use only</div>
+                    <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, letterSpacing: ".14em", textTransform: "uppercase", color: "color-mix(in srgb, var(--primary) 9%, var(--card))", marginBottom: 14 }}>Confidential · For internal use only</div>
                     <h1 className="serif" style={{ fontSize: 40, color: "#fff", lineHeight: 1.06, margin: "0 0 26px", maxWidth: 440 }}>Leadership Program Report</h1>
                     <div style={{ borderTop: "1px solid rgba(255,255,255,.22)", paddingTop: 18, display: "flex", gap: 48, flexWrap: "wrap" }}>
                       <div>
@@ -1627,8 +1627,8 @@ function EdPlanView({ onBack, onRestart }) {
 
   const statusMeta = {
     draft: { label: "Draft", color: "var(--ink)", bg: "var(--status-neutral-bg)" },
-    "under-review": { label: "Under review", color: "#CB7E03", bg: "color-mix(in srgb, #CB7E03 15%, #ffffff)" },
-    approved: { label: "Approved", color: "#14853D", bg: "color-mix(in srgb, #14853D 15%, #ffffff)" },
+    "under-review": { label: "Under review", color: "#CB7E03", bg: "color-mix(in srgb, #CB7E03 15%, var(--card))" },
+    approved: { label: "Approved", color: "#14853D", bg: "color-mix(in srgb, #14853D 15%, var(--card))" },
   };
   const sm = statusMeta[status];
 

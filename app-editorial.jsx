@@ -4,7 +4,7 @@
 //  spacious single column on warm cream · gold action accent.
 // ════════════════════════════════════════════════
 
-const MID = "var(--primary)", SKY = "color-mix(in srgb, var(--primary) 9%, #ffffff)", GOLD = "var(--action)", INK = "var(--ink)",
+const MID = "var(--primary)", SKY = "color-mix(in srgb, var(--primary) 9%, var(--card))", GOLD = "var(--action)", INK = "var(--ink)",
       MUT = "var(--muted)", CREAM = "var(--canvas)", BLUE = "var(--accent)", PURP = "var(--accent)";
 
 // MDS determinate circular progress: value + track arcs, both round-capped, with a
@@ -628,10 +628,10 @@ function EdProgram({ p, onOpen, onSystemCheck, variant, timer, timerPos = "top" 
   // ("Not started") is the outline variant (#94918C border, no fill) handled
   // in mds-folio.css off the --status-neutral-bg tell.
   const tag = state === "complete"
-    ? { label: t("statusCompleted"), fg: "#14853D", bg: "color-mix(in srgb, #14853D 15%, #ffffff)" }
+    ? { label: t("statusCompleted"), fg: "#14853D", bg: "color-mix(in srgb, #14853D 15%, var(--card))" }
     : state === "notstarted"
       ? { label: t("statusNotStarted"), fg: "var(--ink)", bg: "var(--status-neutral-bg)" }
-      : { label: t("statusInProgress"), fg: "var(--accent)", bg: "color-mix(in srgb, var(--accent) 15%, #ffffff)" };
+      : { label: t("statusInProgress"), fg: "var(--accent)", bg: "color-mix(in srgb, var(--accent) 15%, var(--card))" };
   return (
     <div style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 16, padding: 22, display: "flex", flexDirection: "column", overflow: "hidden" }}>
       {timer && timerPos === "top" && (

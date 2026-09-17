@@ -502,13 +502,13 @@ const PL_STATUS = {
   // Positive / Negative. Colours are the exact MDS hues; fill = 85%-white tint.
   notstarted: { label: "Not Started", color: "var(--ink)", bg: "var(--status-neutral-bg)", icon: null },
   draft: { label: "Draft", color: "var(--ink)", bg: "var(--status-neutral-bg)", icon: null },
-  pending: { label: "Pending Approval", color: "#CB7E03", bg: "color-mix(in srgb, #CB7E03 15%, #ffffff)", icon: "clock" },
+  pending: { label: "Pending Approval", color: "#CB7E03", bg: "color-mix(in srgb, #CB7E03 15%, var(--card))", icon: "clock" },
   // The manager has opened the plan for review — no longer just queued.
-  review: { label: "In Review", color: "var(--accent)", bg: "color-mix(in srgb, var(--accent) 15%, #ffffff)", icon: "eye" },
-  approved: { label: "Approved", color: "#14853D", bg: "color-mix(in srgb, #14853D 15%, #ffffff)", icon: "checkCircle" },
-  rejected: { label: "Rejected", color: "#C53532", bg: "color-mix(in srgb, #C53532 15%, #ffffff)", icon: "alertCircle" },
+  review: { label: "In Review", color: "var(--accent)", bg: "color-mix(in srgb, var(--accent) 15%, var(--card))", icon: "eye" },
+  approved: { label: "Approved", color: "#14853D", bg: "color-mix(in srgb, #14853D 15%, var(--card))", icon: "checkCircle" },
+  rejected: { label: "Rejected", color: "#C53532", bg: "color-mix(in srgb, #C53532 15%, var(--card))", icon: "alertCircle" },
   // The owner's own marker once they've finished the work — not a manager decision.
-  completed: { label: "Completed", color: "#14853D", bg: "color-mix(in srgb, #14853D 15%, #ffffff)", icon: "checkCircle" },
+  completed: { label: "Completed", color: "#14853D", bg: "color-mix(in srgb, #14853D 15%, var(--card))", icon: "checkCircle" },
 };
 // The badge itself — same pill wherever a plan status is shown.
 function PlStatusBadge({ status, size = 14 }) {
@@ -1228,7 +1228,7 @@ function PlReportTab() {
         <div key={i} className="ed-report-page" style={{ ...a4, background: "radial-gradient(120% 120% at 15% 0%, rgba(170,27,23,.16), transparent 55%), linear-gradient(150deg, var(--surface-deep), color-mix(in srgb, var(--primary) 65%, #000))", padding: 56, overflow: "hidden", justifyContent: "space-between" }}>
           <svg viewBox="0 0 43.17 44.26" width="36" height="37" aria-hidden="true"><polygon fill="#fff" points="42.49 0 21.65 30.43 22.2 30.43 35.07 24.39 35.07 44.26 43.17 44.26 43.17 0 42.49 0" /><polygon fill="#fff" points="0 0 0 44.26 8.1 44.26 8.1 24.4 20.9 30.43 21.52 30.43 .68 0 0 0" /></svg>
           <div>
-            <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, letterSpacing: ".14em", textTransform: "uppercase", color: "color-mix(in srgb, var(--primary) 9%, #ffffff)", marginBottom: 14 }}>Confidential · For internal use only</div>
+            <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, letterSpacing: ".14em", textTransform: "uppercase", color: "color-mix(in srgb, var(--primary) 9%, var(--card))", marginBottom: 14 }}>Confidential · For internal use only</div>
             <h1 className="serif" style={{ fontSize: 40, color: "#fff", lineHeight: 1.06, margin: 0, maxWidth: 440 }}>Leadership Program Report</h1>
           </div>
           <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: "rgba(255,255,255,.7)" }}>Marsh · All rights reserved</div>
@@ -1584,7 +1584,7 @@ function EdPlanPage({ onBack, onRestart, startLocked }) {
                         <li key={i} style={{ fontFamily: "var(--sans)", fontSize: 13, color: eINK, lineHeight: 1.9 }}>
                           {c.kind === "added" ? "Added" : c.kind === "removed" ? "Removed" : "Modified"}{" "}
                           {c.scope === "skill" ? "Skill" : "Development Action"}:{" "}
-                          <span className="pl-chg-badge" style={{ background: c.kind === "added" ? "color-mix(in srgb, var(--accent) 15%, #ffffff)" : c.kind === "removed" ? "color-mix(in srgb, var(--danger) 15%, #ffffff)" : "color-mix(in srgb, #CB7E03 15%, #ffffff)", color: c.kind === "added" ? "var(--accent)" : c.kind === "removed" ? "var(--danger)" : "#CB7E03", padding: "1px 8px", borderRadius: 6, boxDecorationBreak: "clone", WebkitBoxDecorationBreak: "clone" }}>{c.label}</span>
+                          <span className="pl-chg-badge" style={{ background: c.kind === "added" ? "color-mix(in srgb, var(--accent) 15%, var(--card))" : c.kind === "removed" ? "color-mix(in srgb, var(--danger) 15%, var(--card))" : "color-mix(in srgb, #CB7E03 15%, var(--card))", color: c.kind === "added" ? "var(--accent)" : c.kind === "removed" ? "var(--danger)" : "#CB7E03", padding: "1px 8px", borderRadius: 6, boxDecorationBreak: "clone", WebkitBoxDecorationBreak: "clone" }}>{c.label}</span>
                         </li>
                       ))}
                     </ul>
@@ -1808,7 +1808,7 @@ function plStats(data) {
 }
 // Stepped 0/25/50/75/100 completion picker — the MDS Segmented Button, Small
 // (32px) variant. Exact MDS values (verified in the Figma): selected bg #000F47
-// navy / text color-mix(in srgb, var(--primary) 9%, #ffffff) (Sky Blue); unselected transparent / navy #000F47 text;
+// navy / text color-mix(in srgb, var(--primary) 9%, var(--card)) (Sky Blue); unselected transparent / navy #000F47 text;
 // 1px #000F47 border per segment; 2px outer corner radius; Noto Sans 700 16px;
 // hover on an unselected segment = rgba(0,15,71,.08). See .pl-seg-btn hover in
 // mds-folio.css.

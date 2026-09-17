@@ -124,7 +124,7 @@ function EdC360({ prog, onBack, onBuildPlan, countdown, initialStep } = {}) {
   if (c360Step === "home") return (
     <div style={wrap}>
       <div style={{ marginBottom: 16 }}>
-        <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, #ffffff)", padding: "4px 11px", borderRadius: 6, whiteSpace: "nowrap" }}>In progress</span>
+        <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 15%, var(--card))", padding: "4px 11px", borderRadius: 6, whiteSpace: "nowrap" }}>In progress</span>
       </div>
 
       <h1 className="serif" style={{ fontSize: isMob ? 28 : 40, color: qMID, lineHeight: 1.05, margin: "0 0 14px", textWrap: "pretty" }}>Your 360° campaign, at a glance.</h1>
@@ -156,7 +156,7 @@ function EdC360({ prog, onBack, onBuildPlan, countdown, initialStep } = {}) {
           onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.borderColor = qMID; }} onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.borderColor = qLINE; }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
             <div style={{ fontSize: 15, fontWeight: 400, color: qMUT, fontFamily: "var(--sans)" }}>Step 01 · Self-evaluation</div>
-            {c360SelfDone && <div style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 10px", borderRadius: 99, background: "color-mix(in srgb, #14853D 15%, #ffffff)", color: "#14853D", fontSize: 15, fontWeight: 400, fontFamily: "var(--sans)" }}><QI.Check s={11} /> Done</div>}
+            {c360SelfDone && <div style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 10px", borderRadius: 99, background: "color-mix(in srgb, #14853D 15%, var(--card))", color: "#14853D", fontSize: 15, fontWeight: 400, fontFamily: "var(--sans)" }}><QI.Check s={11} /> Done</div>}
           </div>
           <h2 className="serif" style={{ fontSize: 21, color: qMID, lineHeight: 1.15, margin: "0 0 10px" }}>Rate yourself first.</h2>
           <p style={{ fontSize: 15, color: qINK, fontFamily: "var(--sans)", lineHeight: 1.6, margin: "0 0 18px" }}>Score yourself on {totalSelf} leadership competencies. Your answers anchor the gap analysis in your final report.</p>
@@ -220,7 +220,7 @@ function EdC360({ prog, onBack, onBuildPlan, countdown, initialStep } = {}) {
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
             <div style={{ fontSize: 15, fontWeight: 400, color: qMUT, fontFamily: "var(--sans)" }}>Step 04 · Report</div>
             {responseRate >= 60 ? (
-              <div style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 10px", borderRadius: 99, background: "color-mix(in srgb, var(--accent) 15%, #ffffff)", color: "var(--accent)", fontSize: 15, fontWeight: 700, fontFamily: "var(--sans)" }}>Ready</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 10px", borderRadius: 99, background: "color-mix(in srgb, var(--accent) 15%, var(--card))", color: "var(--accent)", fontSize: 15, fontWeight: 700, fontFamily: "var(--sans)" }}>Ready</div>
             ) : (
               <div style={{ display: "flex", alignItems: "center", gap: 4, color: qMUT, fontSize: 15, fontFamily: "var(--sans)" }}><QI.Lock s={12} /> Locked</div>
             )}
@@ -438,11 +438,11 @@ function EdC360({ prog, onBack, onBuildPlan, countdown, initialStep } = {}) {
         <div style={{ background: qCARD, border: "1px solid " + qLINE, borderRadius: cr, overflow: "hidden" }}>
           {roster.map((r, i) => {
             const stCfg = {
-              complete: { l: "Complete", c: "#14853D", bg: "color-mix(in srgb, #14853D 15%, #ffffff)" },
-              "in-progress": { l: "In progress", c: "var(--accent)", bg: "color-mix(in srgb, var(--accent) 15%, #ffffff)" },
-              opened: { l: "Opened", c: "#CB7E03", bg: "color-mix(in srgb, #CB7E03 15%, #ffffff)" },
+              complete: { l: "Complete", c: "#14853D", bg: "color-mix(in srgb, #14853D 15%, var(--card))" },
+              "in-progress": { l: "In progress", c: "var(--accent)", bg: "color-mix(in srgb, var(--accent) 15%, var(--card))" },
+              opened: { l: "Opened", c: "#CB7E03", bg: "color-mix(in srgb, #CB7E03 15%, var(--card))" },
               invited: { l: "Invited", c: "var(--ink)", bg: "var(--status-neutral-bg)" },
-              declined: { l: "Declined", c: "#C53532", bg: "color-mix(in srgb, #C53532 15%, #ffffff)" },
+              declined: { l: "Declined", c: "#C53532", bg: "color-mix(in srgb, #C53532 15%, var(--card))" },
             }[r.status];
             return (
               <div key={r.id} style={{ display: "flex", alignItems: "center", gap: 14, padding: "14px 18px", borderTop: i > 0 ? "1px solid " + qLINE : "none" }}>
