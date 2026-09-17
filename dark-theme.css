@@ -151,3 +151,7 @@ html[data-theme="dark"] [style*="rgba(255, 255, 255, 0.72)"] {
   background: rgba(26,26,26,.92) !important;
   color: #C2C4C9 !important;
 }
+
+/* Network-test pulse rings: the brand-tinted border (var(--action) 25/35%) is too faint
+   on the dark canvas — brighten to a white overlay so the pulse reads. */
+html[data-theme="dark"] .ed-ping { border-color: rgba(255,255,255,.32) !important; }
