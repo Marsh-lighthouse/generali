@@ -1606,7 +1606,7 @@ function ScVideo({ setResult, onBack, onNext, onStep, vertical }) {
       {(vstate === "preview" || vstate === "countdown" || vstate === "recording") && (
         <div style={media}>
           {silhouette}
-          {vstate === "preview" && <div style={{ ...overlayText, background: "rgba(0,15,71,.5)" }}>
+          {vstate === "preview" && <div style={{ ...overlayText, background: "rgba(0,0,0,.5)" }}>
             <p style={{ fontFamily: "var(--sans)", fontSize: 15, lineHeight: 1.5, maxWidth: 460, margin: 0 }}>Select your microphone and camera, click <strong>Let's start</strong>, then read aloud and repeat the sentence appearing at the bottom 3 times.</p>
             <EdBtn primary dark onClick={() => setVstate("countdown")}>Let's start! <I.arrow size={16} /></EdBtn>
           </div>}
@@ -1614,19 +1614,19 @@ function ScVideo({ setResult, onBack, onNext, onStep, vertical }) {
           {vstate === "recording" && <React.Fragment>
             {/* top-left: REC pill + live audio meter */}
             <div style={{ position: "absolute", left: 14, top: 14, zIndex: 3, display: "flex", alignItems: "center", gap: 8 }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(0,15,71,.55)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", color: "#fff", borderRadius: 8, padding: "6px 12px", fontFamily: "var(--sans)", fontSize: 13, fontWeight: 700, letterSpacing: ".02em" }}>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(0,0,0,.55)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", color: "#fff", borderRadius: 8, padding: "6px 12px", fontFamily: "var(--sans)", fontSize: 13, fontWeight: 700, letterSpacing: ".02em" }}>
                 <span className="ed-blink" style={{ width: 9, height: 9, borderRadius: 5, background: eDANGER, display: "inline-block", boxShadow: "0 0 0 4px rgba(203,17,17,.25)" }} />
                 REC {String(Math.floor(sec / 60)).padStart(2, "0")}:{String(sec % 60).padStart(2, "0")}
               </span>
-              <span title="Microphone level" style={{ display: "inline-flex", alignItems: "center", gap: 3, height: 30, background: "rgba(0,15,71,.55)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", borderRadius: 8, padding: "0 12px" }}>
+              <span title="Microphone level" style={{ display: "inline-flex", alignItems: "center", gap: 3, height: 30, background: "rgba(0,0,0,.55)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", borderRadius: 8, padding: "0 12px" }}>
                 {[0, 1, 2, 3, 4].map((i) => <span key={i} className="ed-eq" style={{ width: 3, borderRadius: 2, background: "#7fd0a0", animationDelay: (i * 0.13) + "s" }} />)}
               </span>
             </div>
 
             {/* teleprompter caption */}
             <div style={{ position: "absolute", left: 16, right: 16, bottom: 82, zIndex: 3, display: "flex", justifyContent: "center" }}>
-              <div style={{ maxWidth: 620, background: "rgba(0,15,71,.6)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,.14)", borderRadius: 14, padding: "14px 22px", textAlign: "center" }}>
-                <div style={{ fontFamily: "var(--sans)", fontSize: 11.5, fontWeight: 400, letterSpacing: ".14em", textTransform: "uppercase", color: "rgba(220,230,245,.72)", marginBottom: 8 }}>Read aloud</div>
+              <div style={{ maxWidth: 620, background: "rgba(0,0,0,.62)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,.14)", borderRadius: 14, padding: "14px 22px", textAlign: "center" }}>
+                <div style={{ fontFamily: "var(--sans)", fontSize: 11.5, fontWeight: 400, letterSpacing: ".14em", textTransform: "uppercase", color: "rgba(255,255,255,.72)", marginBottom: 8 }}>Read aloud</div>
                 <p style={{ fontFamily: "var(--sans)", fontSize: 15, lineHeight: 1.5, color: "#fff", margin: 0, fontWeight: 400 }}>{SC_PHRASE}</p>
               </div>
             </div>
@@ -1844,7 +1844,7 @@ function ScVideoLive({ setResult, onBack, onNext, vertical, panel, embed, onCapt
   const devPopover = devMenu && (
     <React.Fragment>
       <div onClick={() => setDevMenu(null)} style={{ position: "absolute", inset: 0, zIndex: 5 }} />
-      <div style={{ position: "absolute", right: 12, bottom: 62, zIndex: 6, width: 280, background: "#fff", border: "1px solid " + eLINE, borderRadius: 12, boxShadow: "0 12px 30px rgba(0,15,71,.22)", padding: 12 }}>
+      <div style={{ position: "absolute", right: 12, bottom: 62, zIndex: 6, width: 280, background: "#fff", border: "1px solid " + eLINE, borderRadius: 12, boxShadow: "0 12px 30px rgba(0,0,0,.22)", padding: 12 }}>
         <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, color: eMID, marginBottom: 8 }}>{devMenu === "cam" ? "Select a Camera" : "Select a Microphone"}</div>
         <div style={{ display: "flex", flexDirection: "column", gap: 2, maxHeight: 190, overflowY: "auto" }}>
           {(devMenu === "cam" ? cameras : mics).map((d, i) => {
@@ -1863,7 +1863,7 @@ function ScVideoLive({ setResult, onBack, onNext, vertical, panel, embed, onCapt
     </React.Fragment>
   );
   const audioMeter = (
-    <span style={{ display: "inline-flex", alignItems: "center", gap: 3, height: 26, background: "rgba(0,15,71,.5)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", borderRadius: 8, padding: "0 11px" }}>
+    <span style={{ display: "inline-flex", alignItems: "center", gap: 3, height: 26, background: "rgba(0,0,0,.5)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", borderRadius: 8, padding: "0 11px" }}>
       {[0, 1, 2, 3, 4].map((i) => { const h = Math.max(4, Math.min(18, 4 + level * 34 * (i === 2 ? 1 : i % 2 ? 0.7 : 0.45))); return <span key={i} style={{ width: 3, height: h, borderRadius: 2, background: "#fff", transition: "height .08s linear" }} />; })}
     </span>
   );
@@ -1891,7 +1891,7 @@ function ScVideoLive({ setResult, onBack, onNext, vertical, panel, embed, onCapt
         <div style={media}>
           {liveVideo}
 
-          {vstate === "countdown" && <div style={{ ...overlay, background: "rgba(0,15,71,.35)" }}><div style={{ fontFamily: "var(--sans)", fontSize: mob ? 54 : 72, fontWeight: 700, color: "#fff", lineHeight: 1 }}>{count > 0 ? count : ""}</div></div>}
+          {vstate === "countdown" && <div style={{ ...overlay, background: "rgba(0,0,0,.35)" }}><div style={{ fontFamily: "var(--sans)", fontSize: mob ? 54 : 72, fontWeight: 700, color: "#fff", lineHeight: 1 }}>{count > 0 ? count : ""}</div></div>}
 
           {vstate === "recording" && <div style={{ position: "absolute", top: 14, right: 14, zIndex: 4 }}>{audioMeter}</div>}
 
@@ -1912,7 +1912,7 @@ function ScVideoLive({ setResult, onBack, onNext, vertical, panel, embed, onCapt
 
           {vstate === "recording" && (
             <div style={ctrlBar}>
-              <div style={{ background: "rgba(0,15,71,.82)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", padding: mob ? "9px 12px" : "12px 18px", textAlign: "center" }}>
+              <div style={{ background: "rgba(0,0,0,.82)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", padding: mob ? "9px 12px" : "12px 18px", textAlign: "center" }}>
                 <span style={{ fontFamily: "var(--sans)", fontSize: mob ? 13 : 15, fontWeight: 400, color: "#fff", lineHeight: 1.45 }}>{SC_PHRASE}</span>
               </div>
               <div style={{ height: 4, background: "rgba(255,255,255,.2)" }}><div style={{ height: "100%", width: (Math.min(sec, 30) / 30 * 100) + "%", background: eBLUE, transition: "width .9s linear" }} /></div>
@@ -2162,7 +2162,7 @@ function ScAudioLive({ setResult, onBack, onNext, vertical, panel, embed, onCapt
             )}
           </div>
 
-          {vstate === "reviewing" && (
+          {vstate === "reviewing" && !embed && (
             <div style={{ marginTop: 14, border: "1px solid " + eLINE, borderRadius: 12, overflow: "hidden", background: "#fff" }}>
               {[["Access"], ["Uploading"]].map((r, i) => (
                 <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "13px 16px", borderBottom: i === 0 ? "1px solid " + eLINE : "none" }}>
