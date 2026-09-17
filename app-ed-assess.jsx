@@ -1081,7 +1081,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                     <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: eINK, paddingLeft: 10 }}>{row}</div>
                     <div onClick={(e) => onTrack(ri, e)} style={{ position: "relative", height: 26, background: "var(--track)", cursor: "pointer", borderRight: "1px solid " + eLINE }}>
                       {[10, 20, 30, 40, 50, 60, 70, 80, 90].map((n) => <div key={n} style={{ position: "absolute", top: 0, bottom: 0, left: n + "%", width: 1, background: "rgba(0,15,71,.07)" }} />)}
-                      {val != null && <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: val + "%", background: "var(--accent)" }} />}
+                      {val != null && <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: val + "%", background: "var(--action)" }} />}
                     </div>
                     <div style={{ textAlign: "right", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: val == null ? eMUT : eMID }}>{val == null ? "–" : val}</div>
                   </div>
@@ -1136,7 +1136,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                 );
               })}
             </div>
-            <input type="range" min="0" max="100" step={Math.round(100 / segs)} value={val} onChange={(e) => onChange(Number(e.target.value))} style={{ width: 320, maxWidth: "100%", accentColor: "var(--primary)" }} />
+            <input type="range" min="0" max="100" step={Math.round(100 / segs)} value={val} onChange={(e) => onChange(Number(e.target.value))} style={{ width: 320, maxWidth: "100%", accentColor: "var(--action)" }} />
             <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: eMID }}>{filled} / {segs}</div>
           </div>
         );
@@ -1188,7 +1188,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
         };
         const btn = (label, kind, onClick, disabled) => {
           const muted = kind === "muted";
-          const bg = kind === "dark" ? "var(--primary)" : kind === "danger" ? "var(--danger-fill)" : "var(--card)";
+          const bg = kind === "dark" ? "var(--action)" : kind === "danger" ? "var(--danger-fill)" : "var(--card)";
           const fg = kind === "dark" ? "var(--on-accent)" : muted ? "var(--ink)" : "#fff";
           return <button onClick={onClick} disabled={disabled} style={{ padding: "11px 18px", borderRadius: 8, border: muted ? "1px solid var(--line)" : "none", background: bg, color: fg, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: disabled ? "not-allowed" : "pointer", opacity: disabled ? 0.45 : 1 }}>{label}</button>;
         };
@@ -1300,7 +1300,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                   <span style={{ fontFamily: "var(--sans)", fontSize: 15, color: eINK }}>{c}</span>
                   <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--primary)" }}>{v[i] == null ? 0 : v[i]}</span>
                 </div>
-                <input type="range" min="0" max="100" value={v[i] == null ? 0 : v[i]} onChange={(e) => onChange({ ...v, [i]: Number(e.target.value) })} style={{ width: "100%", accentColor: "var(--primary)" }} />
+                <input type="range" min="0" max="100" value={v[i] == null ? 0 : v[i]} onChange={(e) => onChange({ ...v, [i]: Number(e.target.value) })} style={{ width: "100%", accentColor: "var(--action)" }} />
               </div>
             )}
           </div>);
@@ -1406,7 +1406,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                         const on = !!why[wi];
                         return (
                           <button key={wi} onClick={() => { const nw = [...why]; nw[wi] = !on; set(ci, { why: nw }); }} aria-label={cat + " — reason " + (wi + 1)} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 11px", borderRadius: 8, border: "1.5px solid " + (on ? eBLUE : eLINE), background: on ? "color-mix(in srgb, var(--accent) 6%, transparent)" : "#fff", cursor: "pointer" }}>
-                            <span style={{ width: 15, height: 15, flexShrink: 0, borderRadius: 4, border: "1.5px solid " + (on ? "var(--primary)" : "var(--control-line)"), background: on ? "var(--primary)" : "transparent", color: "var(--on-accent)", display: "flex", alignItems: "center", justifyContent: "center" }}>{on && <I.check size={10} />}</span>
+                            <span style={{ width: 15, height: 15, flexShrink: 0, borderRadius: 4, border: "1.5px solid " + (on ? "var(--primary)" : "var(--control-line)"), background: on ? "var(--action)" : "transparent", color: "var(--on-accent)", display: "flex", alignItems: "center", justifyContent: "center" }}>{on && <I.check size={10} />}</span>
                             <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: eMID }}>{wi + 1}</span>
                           </button>);
                       })}
@@ -1440,7 +1440,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                     const on = !!why[wi];
                     return <div key={wi} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
                       <span style={{ fontFamily: "var(--sans)", fontSize: 15, color: eMUT }}>Why</span>
-                      <button onClick={() => { const nw = [...why]; nw[wi] = !on; set(ci, { why: nw }); }} style={{ width: 16, height: 16, borderRadius: 4, border: "1.5px solid " + (on ? "var(--primary)" : "var(--control-line)"), background: on ? "var(--primary)" : "transparent", color: "var(--on-accent)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", padding: 0 }}>{on && <I.check size={11} />}</button>
+                      <button onClick={() => { const nw = [...why]; nw[wi] = !on; set(ci, { why: nw }); }} style={{ width: 16, height: 16, borderRadius: 4, border: "1.5px solid " + (on ? "var(--primary)" : "var(--control-line)"), background: on ? "var(--action)" : "transparent", color: "var(--on-accent)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", padding: 0 }}>{on && <I.check size={11} />}</button>
                     </div>;
                   })}
                 </div>);
@@ -1534,7 +1534,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
         // `graphic`: thermometer | trafficlight | smiley | grade | gradeAD → big graphic + vertical slider.
         if (q.graphic) {
           const pick = (arr) => arr[Math.min(arr.length - 1, Math.max(0, Math.floor(val / 100 * arr.length)))];
-          const blue = "var(--primary)"; // brand primary — all graphics use this except the smiley
+          const blue = "var(--action)"; // brand primary — all graphics use this except the smiley
           let graphic = null;
           if (q.graphic === "thermometer") {
             const top = 24, bot = 196; const fillTop = top + (1 - val / 100) * (bot - top);
@@ -1584,7 +1584,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
           } else if (q.graphic === "dial") {
             const ang = -90 + val / 100 * 180;
             graphic = (
-              <div style={{ width: 180, height: 180, borderRadius: "50%", background: "var(--surface-deep)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
+              <div style={{ width: 180, height: 180, borderRadius: "50%", background: "var(--action)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
                 <div style={{ width: 22, height: 22, borderRadius: "50%", background: "var(--card)", zIndex: 1 }} />
                 <div style={{ position: "absolute", width: 5, height: 64, background: "#fff", borderRadius: 3, transformOrigin: "center bottom", bottom: "50%", left: "calc(50% - 2.5px)", transform: `rotate(${ang}deg)` }} />
               </div>
@@ -1594,17 +1594,17 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 44, padding: "6px 0", minHeight: 260 }}>
               <div style={{ flexShrink: 0, display: "flex", alignItems: "center" }}>{graphic}</div>
               <input type="range" min="0" max="100" value={val} onChange={(e) => onChange(Number(e.target.value))}
-                style={{ writingMode: "vertical-lr", direction: "rtl", width: 24, height: 240, accentColor: "var(--primary)", cursor: "pointer" }} />
+                style={{ writingMode: "vertical-lr", direction: "rtl", width: 24, height: 240, accentColor: "var(--action)", cursor: "pointer" }} />
             </div>);
         }
         return (
           <div style={{ display: "flex", alignItems: "center", gap: 22, flexWrap: "wrap" }}>
-            <div style={{ width: 88, height: 88, borderRadius: "50%", background: "var(--surface-deep)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, position: "relative" }}>
+            <div style={{ width: 88, height: 88, borderRadius: "50%", background: "var(--action)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, position: "relative" }}>
               <div style={{ width: 14, height: 14, borderRadius: "50%", background: "var(--card)", zIndex: 1 }} />
               <div style={{ position: "absolute", width: 3, height: 32, background: "#fff", borderRadius: 2, transformOrigin: "bottom center", bottom: "50%", left: "calc(50% - 1.5px)", transform: `rotate(${-90 + val / 100 * 180}deg)` }} />
             </div>
             <div style={{ flex: 1, minWidth: 200 }}>
-              <input type="range" min="0" max="100" value={val} onChange={(e) => onChange(Number(e.target.value))} style={{ width: "100%", accentColor: "var(--primary)" }} />
+              <input type="range" min="0" max="100" value={val} onChange={(e) => onChange(Number(e.target.value))} style={{ width: "100%", accentColor: "var(--action)" }} />
               <div style={{ display: "flex", justifyContent: "space-between", fontFamily: "var(--sans)", fontSize: 15, color: eMUT, marginTop: 4 }}><span>Low</span><span style={{ fontWeight: 400, color: "var(--primary)" }}>{val}</span><span>High</span></div>
             </div>
           </div>);
@@ -1676,7 +1676,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                     ? <img src={c.img} alt={c.alt || ""} loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                     : <div style={{ position: "absolute", inset: 0 }} dangerouslySetInnerHTML={{ __html: c.svg }} />}
                   {on &&
-                    <span style={{ position: "absolute", top: 10, right: 10, width: 26, height: 26, borderRadius: "var(--lh-radius, 2px)", background: "var(--surface-deep)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 8px rgba(0,0,0,.25)" }}><I.check size={15} /></span>
+                    <span style={{ position: "absolute", top: 10, right: 10, width: 26, height: 26, borderRadius: "var(--lh-radius, 2px)", background: "var(--action)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 8px rgba(0,0,0,.25)" }}><I.check size={15} /></span>
                   }
                 </button>
               );
@@ -1694,7 +1694,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
               const on = sel.includes(i);
               return (
                 <button key={i} onClick={() => toggle(i)} style={{ display: "flex", alignItems: "center", gap: 14, padding: 12, border: "1px solid " + (on ? eMID : eLINE), borderRadius: 12, background: on ? "rgba(0,15,71,.03)" : "#fff", cursor: "pointer", textAlign: "left", width: "100%" }}>
-                  <span style={{ width: 22, height: 22, borderRadius: 5, border: "2px solid " + (on ? eMID : "var(--control-line)"), background: on ? eMID : "#fff", color: "var(--on-accent)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{on && <I.check size={14} />}</span>
+                  <span style={{ width: 22, height: 22, borderRadius: 5, border: "2px solid " + (on ? eMID : "var(--control-line)"), background: on ? "var(--action)" : "#fff", color: "var(--on-accent)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{on && <I.check size={14} />}</span>
                   <span style={{ width: 52, height: 52, borderRadius: 9, overflow: "hidden", flexShrink: 0, background: eCARD, display: "flex", alignItems: "center", justifyContent: "center" }}>
                     {c.img
                       ? <img src={c.img} alt="" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
