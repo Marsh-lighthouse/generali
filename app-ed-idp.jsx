@@ -579,7 +579,7 @@ function IdpWizard({ initial, onBack, onFinish }) {
 
   // Shared design switcher \u2014 a floating chip (like "All directions") to flip skins.
   const designSwitch = (
-    <div className="ed-idp-designchip" style={{ position: "fixed", left: "calc(var(--rail-w, 256px) + 20px)", bottom: 16, zIndex: 45, display: "flex", alignItems: "center", gap: 8, background: eCARD, border: "1px solid " + eLINE, borderRadius: 10, padding: "7px 9px 7px 12px", boxShadow: "0 6px 20px rgba(0,15,71,.12)" }}>
+    <div className="ed-idp-designchip" style={{ position: "fixed", left: "calc(var(--rail-w, 256px) + 20px)", bottom: 16, zIndex: 45, display: "flex", alignItems: "center", gap: 8, background: eCARD, border: "1px solid " + eLINE, borderRadius: 10, padding: "7px 9px 7px 12px", boxShadow: "0 6px 20px var(--hairline)" }}>
       <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: eMUT }}>Coach design</span>
       {[1, 2, 3].map((d) => (
         <button key={d} onClick={() => pickDesign(d)} title={d === 1 ? "Classic wizard" : d === 2 ? "Conversational coach" : "Chat only — Your Development Guide"}
@@ -698,7 +698,7 @@ function IdpWizard({ initial, onBack, onFinish }) {
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
                         <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: (isCur || done) ? eMID : eMUT }}>{qq.short}</span>
-                        {revised[i] && <span title="This answer was revised" style={{ fontFamily: "var(--sans)", fontSize: 11.5, fontWeight: 700, color: eMUT, background: "rgba(0,15,71,.06)", borderRadius: 5, padding: "1px 6px" }}>Revised</span>}
+                        {revised[i] && <span title="This answer was revised" style={{ fontFamily: "var(--sans)", fontSize: 11.5, fontWeight: 700, color: eMUT, background: "var(--status-neutral-bg)", borderRadius: 5, padding: "1px 6px" }}>Revised</span>}
                       </div>
                       {isErr ? <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: eDANGER, lineHeight: 1.45, marginTop: 3 }}>{error.reason}</div>
                         : done ? <React.Fragment>
@@ -1410,7 +1410,7 @@ function EdIdpFlow({ onExit, onDone, initialStep, onStep }) {
           <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
             <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Or type your own answer…" onKeyDown={(e) => { if (e.key === "Enter" && input.trim()) answer(input.trim(), q); }}
               style={{ flex: 1, padding: "11px 14px", borderRadius: 10, border: "1px solid " + eLINE, background: "var(--card)", color: eINK, fontFamily: "var(--sans)", fontSize: 15, outline: "none" }} />
-            <button onClick={() => input.trim() && answer(input.trim(), q)} disabled={!input.trim()} style={{ width: 44, height: 44, borderRadius: "50%", background: input.trim() ? eMID : "rgba(0,15,71,.12)", color: "#fff", border: "none", cursor: input.trim() ? "pointer" : "default", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><I.send size={17} /></button>
+            <button onClick={() => input.trim() && answer(input.trim(), q)} disabled={!input.trim()} style={{ width: 44, height: 44, borderRadius: "50%", background: input.trim() ? eMID : "var(--hairline)", color: "#fff", border: "none", cursor: input.trim() ? "pointer" : "default", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><I.send size={17} /></button>
           </div>
         )}
         </div>
@@ -1748,7 +1748,7 @@ function EdDevChoice({ onBack, onPickAI, onPickManual }) {
       <div style={{ display: "flex", gap: 20, flexWrap: "wrap", alignItems: "stretch" }}>
         {/* Manual — placeholder, not clickable yet */}
         <div style={card}>
-          <div style={{ width: 54, height: 54, borderRadius: "50%", background: "rgba(0,15,71,.06)", border: "1px solid rgba(0,15,71,.12)", color: eMID, display: "flex", alignItems: "center", justifyContent: "center" }}><I.edit size={24} /></div>
+          <div style={{ width: 54, height: 54, borderRadius: "50%", background: "var(--status-neutral-bg)", border: "1px solid var(--hairline)", color: eMID, display: "flex", alignItems: "center", justifyContent: "center" }}><I.edit size={24} /></div>
           <div className="serif" style={{ fontSize: 21, color: eMID }}>Manual Development Plan</div>
           <p style={{ fontFamily: "var(--sans)", fontSize: 15, color: eMUT, lineHeight: 1.6, margin: 0, flex: 1 }}>Build the plan yourself — choose the skills and development actions you want to work on, step by step.</p>
           <button onClick={onPickManual} title="Build your plan step by step" style={{ marginTop: 4, display: "inline-flex", alignItems: "center", gap: 7, background: "var(--card)", color: eMID, border: "1.5px solid " + eMID, borderRadius: 10, padding: "11px 20px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>Start manually <I.arrow size={15} /></button>

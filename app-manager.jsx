@@ -56,7 +56,7 @@ const MGR_TONE = (st) => {
   const P = (window.EdPlan && window.EdPlan.STATUS) || {};
   const s = P[MGR_NORM(st)];
   return s ? { label: s.label, color: s.color, bg: s.bg, icon: s.icon }
-           : { label: "Not Started", color: eMUT, bg: "rgba(0,15,71,.06)", icon: null };
+           : { label: "Not Started", color: eMUT, bg: "var(--status-neutral-bg)", icon: null };
 };
 const MGR_DETAIL_TONE = (status) => { const t = MGR_TONE(status); return { color: t.color, background: t.bg }; };
 
@@ -146,8 +146,8 @@ const MgrNoPlan = ({ name, what }) => (
       <g className="mgr-empty-art">
         <rect x="30" y="16" width="60" height="62" rx="6" fill="rgba(0,15,71,.07)" />
         <rect x="42" y="31" width="36" height="5" rx="2.5" fill="rgba(0,15,71,.16)" />
-        <rect x="42" y="43" width="28" height="5" rx="2.5" fill="rgba(0,15,71,.12)" />
-        <rect x="42" y="55" width="32" height="5" rx="2.5" fill="rgba(0,15,71,.12)" />
+        <rect x="42" y="43" width="28" height="5" rx="2.5" fill="var(--hairline)" />
+        <rect x="42" y="55" width="32" height="5" rx="2.5" fill="var(--hairline)" />
         <path d="M22 62h22a6 6 0 0 0 12 0h22v20a6 6 0 0 1-6 6H28a6 6 0 0 1-6-6z" fill="rgba(0,15,71,.13)" />
         <circle cx="102" cy="22" r="16" fill="rgba(0,15,71,.09)" />
         <path d="M94 42l4-8 6 3z" fill="rgba(0,15,71,.09)" />
@@ -803,7 +803,7 @@ function MgrDetail({ person, onBack, onDecide, showToast, self }) {
           {data.map((cat, ci) => (
             <div key={ci} style={{ marginTop: 26 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 13, marginBottom: 18 }}>
-                <div style={{ width: 46, height: 46, borderRadius: "50%", background: "rgba(0,15,71,.06)", border: "1px solid rgba(0,15,71,.12)", color: eMID, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{React.createElement(I[cat.icon] || I.bulb, { size: 22 })}</div>
+                <div style={{ width: 46, height: 46, borderRadius: "50%", background: "var(--status-neutral-bg)", border: "1px solid var(--hairline)", color: eMID, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{React.createElement(I[cat.icon] || I.bulb, { size: 22 })}</div>
                 <h2 style={{ fontFamily: "var(--sans)", fontSize: 21, fontWeight: 700, color: eMID, margin: 0 }}>{cat.cat}</h2>
               </div>
 

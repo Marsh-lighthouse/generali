@@ -13,7 +13,7 @@ const eMID = "var(--primary)",eCREAM = "var(--canvas)",eINK = "var(--ink)",eMUT 
   eLINE = "var(--line)",eCARD = "#fff",eBLUE = "var(--accent)",eGOLD = "var(--action)",
   eSKY = "color-mix(in srgb, var(--primary) 9%, var(--card))",ePURP = "var(--accent)",eSUCCESS = "var(--success)",eWARN = "#CB7E03",eDANGER = "var(--danger)";
 
-function EdRing2({ pct, size = 18, stroke = 2.5, color = eBLUE, track = "rgba(0,15,71,.12)" }) {
+function EdRing2({ pct, size = 18, stroke = 2.5, color = eBLUE, track = "var(--hairline)" }) {
   const r = (size - stroke) / 2,c = 2 * Math.PI * r;
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{ display: "block" }}>
@@ -925,7 +925,7 @@ function ScMobileSteps({ labels, index }) {
           <React.Fragment key={label}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 9, flexShrink: 0 }}>
               <span style={{ width: 26, height: 26, borderRadius: "50%", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center",
-                background: done ? eSUCCESS : on ? eMID : "rgba(0,15,71,.06)",
+                background: done ? eSUCCESS : on ? eMID : "var(--status-neutral-bg)",
                 color: done || on ? "#fff" : eMUT,
                 border: done ? "none" : "1px solid " + (on ? eMID : eLINE),
                 fontFamily: "var(--sans)", fontSize: 13, fontWeight: 400 }}>

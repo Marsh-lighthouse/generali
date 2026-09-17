@@ -38,11 +38,11 @@
      reload / new visit always starts light, while the in-app toggle still switches
      to dark for the current session. -->
 <script>try{localStorage.removeItem('lh-theme');}catch(e){}</script>
-<link rel="stylesheet" href="brand.css?v=1789654019" />
-<link rel="stylesheet" href="client-brand.css?v=1789654019" />
+<link rel="stylesheet" href="brand.css?v=1789654864" />
+<link rel="stylesheet" href="client-brand.css?v=1789654864" />
 <link rel="stylesheet" href="dark-theme.css" />
-<script src="client-brand.js?v=1789654019"></script>
-<script src="radius-tweak.js?v=1789654019"></script>
+<script src="client-brand.js?v=1789654864"></script>
+<script src="radius-tweak.js?v=1789654864"></script>
 <script src="language-switcher.js"></script>
 <style>
   html, body { margin: 0; background: var(--canvas); }
@@ -76,7 +76,7 @@
   .ed-pageback { display: none !important; }
 
   /* ── Dark mode is now real per-brand design tokens (dark-theme.css + the
-     theme-aware colour logic in lh-tweaks.jsx?v=1789654019 / client-brand.js), replacing the
+     theme-aware colour logic in lh-tweaks.jsx?v=1789654864 / client-brand.js), replacing the
      old `filter: invert()` hack. See DESIGN.md §Dark mode. ── */
 
   /* ── Device preview frame + responsive reflow now live in the shared
@@ -92,31 +92,31 @@
   .mn-ghost { animation: mn-settle .42s cubic-bezier(.22,.95,.3,1) both; }
   @media (prefers-reduced-motion: reduce) { .mn-card, .mn-ghost { animation: none; } }
 </style>
-<link rel="stylesheet" href="device-preview.css?v=1789654019" />
+<link rel="stylesheet" href="device-preview.css?v=1789654864" />
 <!-- MDS V3 test overrides — Folio only. Remove this line to revert. -->
-<link rel="stylesheet" href="mds-folio.css?v=1789654019" />
+<link rel="stylesheet" href="mds-folio.css?v=1789654864" />
 <script>try{if(!localStorage.getItem('lh-device-reset')){localStorage.removeItem('lh-device');localStorage.setItem('lh-device-reset','1');}var __d=localStorage.getItem('lh-device');if(__d&&__d!=='Desktop')document.documentElement.setAttribute('data-device',__d.toLowerCase());}catch(e){}</script>
 </head>
 <body>
-<div id="root"></div>
+<div id="root"><div id="lh-boot" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:var(--canvas,#F7F3EE);z-index:1"><div style="position:relative;width:96px;height:96px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 100 100" width="96" height="96" style="position:absolute;inset:0;animation:ed-spin 1.15s linear infinite" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="var(--action,#000F47)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="78 220"/><circle cx="50" cy="50" r="46" fill="none" stroke="var(--action,#000F47)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="30 220" stroke-dashoffset="-150" opacity="0.5"/></svg><svg viewBox="0 0 43.17 44.26" width="42" height="43" aria-hidden="true"><polygon fill="var(--primary,#000F47)" points="42.49 0 21.65 30.43 22.2 30.43 35.07 24.39 35.07 44.26 43.17 44.26 43.17 0 42.49 0"/><polygon fill="var(--primary,#000F47)" points="0 0 0 44.26 8.1 44.26 8.1 24.4 20.9 30.43 21.52 30.43 .68 0 0 0"/></svg></div></div></div>
 <script>window.__LH_FOLIO = true;</script>
 <a class="lh-back" href="Lighthouse.html">&#8592; All directions</a>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <script src="lh-route.js"></script>
-<script type="text/babel" src="app-shared.jsx?v=1789654019"></script>
-<script type="text/babel" src="app-ed-detail.jsx?v=1789654019"></script>
-<script type="text/babel" src="app-ed-assess.jsx?v=1789654019"></script>
-<script type="text/babel" src="app-ed-growth.jsx?v=1789654019"></script>
-<script type="text/babel" src="app-ed-idp.jsx?v=1789654019"></script>
-<script type="text/babel" src="app-ed-plan.jsx?v=1789654019"></script>
-<script type="text/babel" src="app-ed-manual.jsx?v=1789654019"></script>
-<script type="text/babel" src="app-ed-c360.jsx?v=1789654019"></script>
-<script type="text/babel" src="app-ed-bookings.jsx?v=1789654019"></script>
-<script type="text/babel" src="app-editorial.jsx?v=1789654019"></script>
-<script type="text/babel" src="tweaks-panel.jsx?v=1789654019"></script>
-<script type="text/babel" src="lh-tweaks.jsx?v=1789654019"></script>
+<script type="text/babel" src="app-shared.jsx?v=1789654864"></script>
+<script type="text/babel" src="app-ed-detail.jsx?v=1789654864"></script>
+<script type="text/babel" src="app-ed-assess.jsx?v=1789654864"></script>
+<script type="text/babel" src="app-ed-growth.jsx?v=1789654864"></script>
+<script type="text/babel" src="app-ed-idp.jsx?v=1789654864"></script>
+<script type="text/babel" src="app-ed-plan.jsx?v=1789654864"></script>
+<script type="text/babel" src="app-ed-manual.jsx?v=1789654864"></script>
+<script type="text/babel" src="app-ed-c360.jsx?v=1789654864"></script>
+<script type="text/babel" src="app-ed-bookings.jsx?v=1789654864"></script>
+<script type="text/babel" src="app-editorial.jsx?v=1789654864"></script>
+<script type="text/babel" src="tweaks-panel.jsx?v=1789654864"></script>
+<script type="text/babel" src="lh-tweaks.jsx?v=1789654864"></script>
 <script type="text/babel" data-presets="react">
   function Page() {
     return (<React.Fragment><DashEditorial /><LighthouseTweaks /></React.Fragment>);

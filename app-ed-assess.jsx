@@ -1809,7 +1809,7 @@ function EdOpenAssess({ exercise, onExit, onBack, onNext, hasNext, nextEx, initi
         </div>
       }
       <button onClick={() => setLayoutMenu((v) => !v)} title="Switch survey layout"
-        style={{ display: "inline-flex", alignItems: "center", gap: 6, background: layoutMenu ? "#fff" : "rgba(255,255,255,.72)", color: layoutMenu ? "var(--primary)" : "var(--muted)", border: "1px solid var(--line)", borderRadius: 8, padding: "6px 11px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer", boxShadow: "0 2px 8px rgba(0,15,71,.06)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", opacity: layoutMenu ? 1 : 0.62, transition: "opacity .15s, color .15s, background .15s" }}
+        style={{ display: "inline-flex", alignItems: "center", gap: 6, background: layoutMenu ? "#fff" : "rgba(255,255,255,.72)", color: layoutMenu ? "var(--primary)" : "var(--muted)", border: "1px solid var(--line)", borderRadius: 8, padding: "6px 11px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer", boxShadow: "0 2px 8px var(--status-neutral-bg)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", opacity: layoutMenu ? 1 : 0.62, transition: "opacity .15s, color .15s, background .15s" }}
         onMouseEnter={(e) => { e.currentTarget.style.opacity = 1; e.currentTarget.style.color = "var(--primary)"; }}
         onMouseLeave={(e) => { if (!layoutMenu) { e.currentTarget.style.opacity = 0.62; e.currentTarget.style.color = "var(--muted)"; } }}>
         <I.panel size={14} /> {layout === "split" ? "Split screen" : "Single page"}

@@ -968,7 +968,7 @@ function PlAddSkills({ current, onClose, onSave }) {
           {cats.map((c, ci) => (
             <div key={ci} style={{ borderTop: ci ? "1px solid " + eLINE : "none", paddingTop: ci ? 26 : 18, marginTop: ci ? 26 : 0 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 6 }}>
-                <div style={{ width: 46, height: 46, borderRadius: "50%", background: "rgba(0,15,71,.06)", border: "1px solid rgba(0,15,71,.12)", color: eMID, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{React.createElement(I[c.icon], { size: 22 })}</div>
+                <div style={{ width: 46, height: 46, borderRadius: "50%", background: "var(--status-neutral-bg)", border: "1px solid var(--hairline)", color: eMID, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{React.createElement(I[c.icon], { size: 22 })}</div>
                 <div>
                   <div className="serif" style={{ fontSize: 21, color: eMID }}>{c.name}</div>
                   <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: eMUT }}>Choose the skills you want to develop further as part of your development plan.</div>
@@ -1251,7 +1251,7 @@ function EdPlanPage({ onBack, onRestart, startLocked }) {
   const [sampleMenu, setSampleMenu] = plUseState(false);
   // Comments-panel design: 1 = inbox (tap to open a thread), 2 = flat feed (every
   // comment on first view), 3 = grouped by skill. Sticks like the other switchers.
-  const [commentsDesign, setCommentsDesign] = plUseState(() => { const v = parseInt(localStorage.getItem("pl-comments-design"), 10); return v >= 1 && v <= 3 ? v : 1; });
+  const [commentsDesign, setCommentsDesign] = plUseState(2);   // Generali build: locked to sample 2 (all-on-one-view, per-comment skill name + Go to skill); switcher hidden
   const [commentsMenu, setCommentsMenu] = plUseState(false);
   const commentsChipRef = plUseRef(null);
   // Sample 10 (accordion) — the key "ci-si" of the one open skill; "" means all closed.
@@ -1496,7 +1496,7 @@ function EdPlanPage({ onBack, onRestart, startLocked }) {
           {data.map((cat, ci) => (
             <div key={ci} style={{ marginTop: 26 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 13, marginBottom: 18 }}>
-                <div style={{ width: 46, height: 46, borderRadius: "50%", background: "rgba(0,15,71,.06)", border: "1px solid rgba(0,15,71,.12)", color: eMID, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{React.createElement(I[cat.icon], { size: 22 })}</div>
+                <div style={{ width: 46, height: 46, borderRadius: "50%", background: "var(--status-neutral-bg)", border: "1px solid var(--hairline)", color: eMID, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{React.createElement(I[cat.icon], { size: 22 })}</div>
                 <h2 style={{ fontFamily: "var(--sans)", fontSize: 21, fontWeight: 700, color: eMID, margin: 0 }}>{cat.cat}</h2>
               </div>
 

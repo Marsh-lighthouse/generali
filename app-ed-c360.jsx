@@ -446,7 +446,7 @@ function EdC360({ prog, onBack, onBuildPlan, countdown, initialStep } = {}) {
             }[r.status];
             return (
               <div key={r.id} style={{ display: "flex", alignItems: "center", gap: 14, padding: "14px 18px", borderTop: i > 0 ? "1px solid " + qLINE : "none" }}>
-                <div className="serif" style={{ width: 40, height: 40, borderRadius: "50%", background: "rgba(0,15,71,.06)", color: qMID, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15, flexShrink: 0 }}>{r.avatar}</div>
+                <div className="serif" style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--status-neutral-bg)", color: qMID, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15, flexShrink: 0 }}>{r.avatar}</div>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: 15, fontWeight: 700, color: qMID, fontFamily: "var(--sans)", marginBottom: 2 }}>{r.name}</div>
                   <div style={{ fontSize: 15, color: qINK, fontFamily: "var(--sans)" }}>{r.role}</div>
@@ -557,7 +557,7 @@ function EdC360({ prog, onBack, onBuildPlan, countdown, initialStep } = {}) {
                     <div className="serif" style={{ color: Math.abs(s.gap) < 0.3 ? qMUT : s.gap > 0 ? qGOLDINK : qBLUE, fontSize: 15 }}>Δ {s.gap > 0 ? "+" : ""}{s.gap.toFixed(1)}</div>
                   </div>
                 </div>
-                <div style={{ position: "relative", height: 8, background: "rgba(0,15,71,.06)", borderRadius: 4, overflow: "visible" }}>
+                <div style={{ position: "relative", height: 8, background: "var(--status-neutral-bg)", borderRadius: 4, overflow: "visible" }}>
                   <div style={{ position: "absolute", left: 0, top: 0, height: "100%", width: `${oth}%`, background: qPURPLE, borderRadius: 4 }} />
                   <div style={{ position: "absolute", left: `${selfPos}%`, top: -4, width: 2, height: 16, background: qMID, transform: "translateX(-1px)" }} />
                   <div style={{ position: "absolute", left: `${selfPos}%`, top: -18, transform: "translateX(-50%)", fontSize: 15, fontWeight: 700, fontFamily: "var(--sans)", color: qMID, background: qCANVAS, padding: "1px 5px", borderRadius: 2, whiteSpace: "nowrap" }}>self</div>

@@ -80,7 +80,7 @@ function BRail({ activeId, onNav, collapsed, onToggle, theme }) {
         <div style={{ padding: "0 14px 6px" }}>
           <div style={{ background: "var(--sky-surface)", borderRadius: 12, padding: 16 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 14 }}>
-              <div style={{ position: "relative", width: 56, height: 56, flexShrink: 0, borderRadius: "50%", background: "conic-gradient(" + bGOLD + " " + (LH.profile.pct * 3.6) + "deg, rgba(0,15,71,.12) 0)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ position: "relative", width: 56, height: 56, flexShrink: 0, borderRadius: "50%", background: "conic-gradient(" + bGOLD + " " + (LH.profile.pct * 3.6) + "deg, var(--hairline) 0)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <div style={{ width: 44, height: 44, borderRadius: "50%", background: "var(--card)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, color: bMID }}>{LH.profile.pct}%</div>
               </div>
               <div style={{ flex: 1, minWidth: 0 }}>
@@ -464,7 +464,7 @@ function BHeroMenu({ heroStyle, setHero }) {
         </div>
       )}
       <button onClick={() => setOpen((v) => !v)} title="Switch card design"
-        style={{ display: "inline-flex", alignItems: "center", gap: 6, background: open ? "#fff" : "rgba(255,255,255,.72)", color: open ? "var(--primary)" : "var(--muted)", border: "1px solid var(--line)", borderRadius: 8, padding: "6px 11px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer", boxShadow: "0 2px 8px rgba(0,15,71,.06)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", opacity: open ? 1 : 0.62, transition: "opacity .15s, color .15s, background .15s" }}>
+        style={{ display: "inline-flex", alignItems: "center", gap: 6, background: open ? "#fff" : "rgba(255,255,255,.72)", color: open ? "var(--primary)" : "var(--muted)", border: "1px solid var(--line)", borderRadius: 8, padding: "6px 11px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer", boxShadow: "0 2px 8px var(--status-neutral-bg)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", opacity: open ? 1 : 0.62, transition: "opacity .15s, color .15s, background .15s" }}>
         <I.panel size={14} /> Card design
       </button>
     </div>

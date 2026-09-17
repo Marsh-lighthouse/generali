@@ -14,8 +14,8 @@
 html[data-theme="dark"] {
   --card:         #1A1A1A;            /* elevated surface (cards, inputs)   */
   --surface-deep: #242424;            /* deep decorative panels (white text) */
-  --ink:          #E9EEF6;            /* primary text  — ~14:1 on --card     */
-  --muted:        #A4B2C6;            /* secondary text — ~7.5:1 on --card   */
+  --ink:          #ECEDEF;            /* primary text — neutral near-white (not blue-grey) */
+  --muted:        #C2C4C9;            /* secondary text — brighter NEUTRAL grey so it isn't faded on the black canvas */
   --line:         rgba(255,255,255,.15); /* borders / rules                  */
   /* Report cover stays brand RED in dark, darkened enough for white text. */
   --report-cover-a: color-mix(in srgb, var(--primary) 45%, #000);
@@ -33,12 +33,12 @@ html[data-theme="dark"][data-client-brand="generali"] [style^="color: var(--prim
 html[data-theme="dark"][data-client-brand="generali"] [style*="; color: var(--primary)"],
 html[data-theme="dark"][data-client-brand="generali"] [style^="color: var(--accent)"],
 html[data-theme="dark"][data-client-brand="generali"] [style*="; color: var(--accent)"] {
-  color: #E9EEF6 !important;
+  color: #ECEDEF !important;
 }
 html[data-theme="dark"][data-client-brand="dge"] .lg-title,
 html[data-theme="dark"][data-client-brand="dge"] .lg-label,
 html[data-theme="dark"][data-client-brand="generali"] .lg-title,
-html[data-theme="dark"][data-client-brand="generali"] .lg-label { color: #E9EEF6; }
+html[data-theme="dark"][data-client-brand="generali"] .lg-label { color: #ECEDEF; }
 
 /* Safety net: any straggler inline PURE-WHITE background (ternaries the
    token sweep couldn't rewrite) becomes the dark card surface. */
@@ -53,7 +53,7 @@ html[data-theme="dark"] select { color-scheme: dark; }
    data-URI) slip past the pure-white safety net — override just the colour layer,
    keeping the chevron image. */
 html[data-theme="dark"] select { background-color: var(--card) !important; }
-html[data-theme="dark"] select option { background: #1A1A1A; color: #E9EEF6; }
+html[data-theme="dark"] select option { background: #1A1A1A; color: #ECEDEF; }
 /* Checkboxes / radios: render dark-native (unchecked box = dark, not bright white). */
 html[data-theme="dark"] input[type="checkbox"], html[data-theme="dark"] input[type="radio"] { color-scheme: dark; }
 
@@ -90,6 +90,9 @@ html[data-theme="dark"] .ed-report-page {
   --success: #0E7A38; --danger: #C53532; --warning: #FFBE00;
   --success-fill: #0E7A38; --danger-fill: #C0322F;
   --status-neutral-bg: rgba(0,15,71,.06);
+  /* Cover stays brand-red even though report content pages force navy --primary. */
+  --report-cover-a: color-mix(in srgb, var(--accent) 45%, #000);
+  --report-cover-b: color-mix(in srgb, var(--accent) 30%, #000);
   color-scheme: light;
   background: #FFFFFF;
 }
@@ -106,6 +109,8 @@ html[data-theme="dark"] { --sky-surface: #262626; }
 /* Neutral "Not started" chip fill → a light translucent so the chip is visible
    on the dark card instead of merging with it. */
 html[data-theme="dark"] { --status-neutral-bg: rgba(255,255,255,.12); }
+/* Faint tile/icon-circle border → light overlay so icon circles stay visible on dark. */
+html[data-theme="dark"] { --hairline: rgba(255,255,255,.16); }
 
 /* Form-control outlines & tracks: navy overlays vanish on dark → use light overlays.
    (Light values live in brand.css; only the dark values change here.) */
@@ -132,15 +137,15 @@ html[data-theme="dark"] .lh-back,
 html[data-theme="dark"] .lh-brand-chip,
 html[data-theme="dark"] .lh-tweak-fab {
   background: rgba(26,26,26,.92) !important;
-  color: #C7D2E4 !important;
+  color: #C2C4C9 !important;
   border-color: rgba(255,255,255,.16) !important;
 }
 html[data-theme="dark"] .lh-brand-menu { background: #1A1A1A; border-color: rgba(255,255,255,.16); }
-html[data-theme="dark"] .lh-brand-title { color: #A4B2C6; }
-html[data-theme="dark"] .lh-brand-item { color: #C7D2E4; }
+html[data-theme="dark"] .lh-brand-title { color: #C2C4C9; }
+html[data-theme="dark"] .lh-brand-item { color: #C2C4C9; }
 html[data-theme="dark"] .lh-brand-item:hover { background: rgba(255,255,255,.06); }
 /* inline demo selector chips render with a translucent-white fill */
 html[data-theme="dark"] [style*="rgba(255, 255, 255, 0.72)"] {
   background: rgba(26,26,26,.92) !important;
-  color: #C7D2E4 !important;
+  color: #C2C4C9 !important;
 }

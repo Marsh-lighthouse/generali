@@ -101,7 +101,7 @@
   }
   function pill(text, tone) {
     var map = { blue: { bg: "rgba(170,27,23,.10)", fg: TEAL }, green: { bg: "rgba(20,133,61,.11)", fg: GREEN },
-      amber: { bg: "rgba(255,191,0,.20)", fg: "#8A6400" }, grey: { bg: "rgba(0,15,71,.06)", fg: TM } }[tone || "grey"];
+      amber: { bg: "rgba(255,191,0,.20)", fg: "#8A6400" }, grey: { bg: "var(--status-neutral-bg)", fg: TM } }[tone || "grey"];
     return React.createElement("span", { style: { display: "inline-block", padding: "2px 7px", borderRadius: 999, background: map.bg, color: map.fg, fontSize: 11.5, fontWeight: 700, whiteSpace: "nowrap" } }, text);
   }
   function avatar(initials, color, size) {
@@ -167,7 +167,7 @@
         React.createElement("div", { style: { textAlign: "right" } },
           React.createElement("div", { style: { fontFamily: SANS, fontSize: 11.5, color: TM } }, "Forms complete"),
           React.createElement("div", { style: { fontFamily: SANS, fontSize: 11.5, fontWeight: 400, color: TX } }, "3 / 5")),
-        React.createElement("div", { style: { width: 22, height: 22, borderRadius: 999, border: "2.5px solid " + TEAL, borderRightColor: "rgba(0,15,71,.12)", borderBottomColor: "rgba(0,15,71,.12)", flexShrink: 0 } })),
+        React.createElement("div", { style: { width: 22, height: 22, borderRadius: 999, border: "2.5px solid " + TEAL, borderRightColor: "var(--hairline)", borderBottomColor: "var(--hairline)", flexShrink: 0 } })),
       React.createElement("div", { style: { flex: 1, display: "flex", minHeight: 0 } },
         // left · Assessor Brief (read only)
         React.createElement(Row, { i: 1, style: { width: "44%", borderRight: "1px solid rgba(0,15,71,.18)", padding: "9px 11px", background: "rgba(0,15,71,.02)", minWidth: 0 } },
@@ -521,7 +521,7 @@
               grp[1].map(function (v, i) {
                 var on = grp[2] === v;
                 return React.createElement("button", { key: v, onClick: function () { grp[3](v); }, title: grp[4][i],
-                  style: { padding: "4px 10px", borderRadius: 7, border: "none", cursor: "pointer", fontSize: 11.5, fontWeight: 700, background: on ? NAVY : "rgba(0,15,71,.06)", color: on ? "#fff" : TM, whiteSpace: "nowrap" } }, grp[4][i]);
+                  style: { padding: "4px 10px", borderRadius: 7, border: "none", cursor: "pointer", fontSize: 11.5, fontWeight: 700, background: on ? NAVY : "var(--status-neutral-bg)", color: on ? "#fff" : TM, whiteSpace: "nowrap" } }, grp[4][i]);
               }));
           }))
       ),

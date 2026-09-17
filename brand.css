@@ -127,6 +127,7 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); }
      dark mode darkens it (see dark-theme.css). Sky used as TEXT stays #CEECFF. */
   --sky-surface: color-mix(in srgb, var(--primary) 9%, var(--card));
   --status-neutral-bg: rgba(0,15,71,.06);   /* neutral "Not started" chip fill — theme-aware (dark override in dark-theme.css) */
+  --hairline: rgba(0,15,71,.12);            /* faint tile/icon-circle border — theme-aware (light navy tint / dark light tint) */
   --control-line: rgba(0,15,71,.25);        /* form-control outlines: radio/checkbox bullets, dashed drop-zones */
   --track: rgba(0,15,71,.08);               /* progress / slider tracks, disabled fills */
 

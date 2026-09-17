@@ -1610,7 +1610,7 @@ function AssessorEditorial() {
 
           {/* Divider drag handle */}
           <div onMouseDown={startSplitDrag} onTouchStart={startSplitDrag} style={{position:"absolute",left:`${evalSplit}%`,top:0,bottom:0,width:5,transform:"translateX(-50%)",background:bdStrong,cursor:"col-resize",zIndex:5}}>
-            <div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",width:34,height:34,borderRadius:"50%",background:card,border:`1px solid ${bd}`,display:"flex",alignItems:"center",justifyContent:"center",color:tm,boxShadow:"0 1px 4px rgba(0,15,71,.12)"}}>
+            <div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",width:34,height:34,borderRadius:"50%",background:card,border:`1px solid ${bd}`,display:"flex",alignItems:"center",justifyContent:"center",color:tm,boxShadow:"0 1px 4px var(--hairline)"}}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6 4 12l5 6M15 6l5 6-5 6"/></svg>
             </div>
           </div>
@@ -2329,7 +2329,7 @@ function AssessorEditorial() {
                 </table>
               </div>
               {ReactDOM.createPortal(
-                <div ref={tipRef} style={{display:"none",position:"fixed",zIndex:9999,background:"#fff",color:navy,border:"1px solid rgba(0,15,71,.12)",fontSize:14,fontWeight:400,padding:"7px 11px",borderRadius:6,boxShadow:"0 2px 4px -2px rgba(0,0,0,.1), 0 4px 6px -1px rgba(0,0,0,.1)",maxWidth:280,lineHeight:1.4,pointerEvents:"none"}}></div>,
+                <div ref={tipRef} style={{display:"none",position:"fixed",zIndex:9999,background:"#fff",color:navy,border:"1px solid var(--hairline)",fontSize:14,fontWeight:400,padding:"7px 11px",borderRadius:6,boxShadow:"0 2px 4px -2px rgba(0,0,0,.1), 0 4px 6px -1px rgba(0,0,0,.1)",maxWidth:280,lineHeight:1.4,pointerEvents:"none"}}></div>,
                 document.body
               )}
 
@@ -3928,7 +3928,7 @@ function AssessorEditorial() {
       <style>{css}</style>
       <div style={{flex:1,display:"flex",minHeight:0,position:"relative"}}>
         {!immersive && <Sidebar/>}
-        {!immersive && <button onClick={()=>setSidebarOpen(!sidebarOpen)} title={sidebarOpen?"Collapse menu":"Expand menu"} style={{position:"absolute",top:30,left:(sidebarOpen?256:72)-14,zIndex:30,width:28,height:28,borderRadius:"50%",background:card,border:`1px solid ${bdStrong}`,color:navy,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",boxShadow:"0 2px 8px rgba(0,15,71,.12)",transition:"left .2s ease"}}><I.Chev s={15} r={sidebarOpen?180:0}/></button>}
+        {!immersive && <button onClick={()=>setSidebarOpen(!sidebarOpen)} title={sidebarOpen?"Collapse menu":"Expand menu"} style={{position:"absolute",top:30,left:(sidebarOpen?256:72)-14,zIndex:30,width:28,height:28,borderRadius:"50%",background:card,border:`1px solid ${bdStrong}`,color:navy,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",boxShadow:"0 2px 8px var(--hairline)",transition:"left .2s ease"}}><I.Chev s={15} r={sidebarOpen?180:0}/></button>}
         <div style={{flex:1,display:"flex",flexDirection:"column",minWidth:0}}>
           {!immersive && <TopBar/>}
           <main className="no-sb" style={{flex:1,overflow:immersive?"hidden":"auto",background:bg}}>

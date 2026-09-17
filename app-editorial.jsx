@@ -1477,7 +1477,7 @@ function DashEditorial({ initialRoute } = {}) {
           </div>
         )}
         <button onClick={() => setDashMenu((v) => !v)} title="Switch dashboard sample"
-          style={{ display: "inline-flex", alignItems: "center", gap: 6, background: dashMenu ? "#fff" : "rgba(255,255,255,.72)", color: dashMenu ? "var(--primary)" : "var(--muted)", border: "1px solid var(--line)", borderRadius: 8, padding: "6px 11px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer", boxShadow: "0 2px 8px rgba(0,15,71,.06)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", opacity: dashMenu ? 1 : 0.62, transition: "opacity .15s, color .15s, background .15s" }}
+          style={{ display: "inline-flex", alignItems: "center", gap: 6, background: dashMenu ? "#fff" : "rgba(255,255,255,.72)", color: dashMenu ? "var(--primary)" : "var(--muted)", border: "1px solid var(--line)", borderRadius: 8, padding: "6px 11px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer", boxShadow: "0 2px 8px var(--status-neutral-bg)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", opacity: dashMenu ? 1 : 0.62, transition: "opacity .15s, color .15s, background .15s" }}
           onMouseEnter={(e) => { e.currentTarget.style.opacity = 1; e.currentTarget.style.color = "var(--primary)"; }}
           onMouseLeave={(e) => { if (!dashMenu) { e.currentTarget.style.opacity = 0.62; e.currentTarget.style.color = "var(--muted)"; } }}>
           <I.panel size={14} /> Sample {dashSample}
@@ -1485,7 +1485,7 @@ function DashEditorial({ initialRoute } = {}) {
       </div>
     ), document.body)}
     {route.page === "precheck" && ReactDOM.createPortal((
-      <div className="ed-syscheck-chip" style={{ position: "fixed", left: "calc(var(--rail-w, 256px) + 20px)", bottom: 14, zIndex: 60, display: "flex", alignItems: "center", gap: 8, background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "7px 9px 7px 12px", boxShadow: "0 6px 20px rgba(0,15,71,.12)" }}>
+      <div className="ed-syscheck-chip" style={{ position: "fixed", left: "calc(var(--rail-w, 256px) + 20px)", bottom: 14, zIndex: 60, display: "flex", alignItems: "center", gap: 8, background: "var(--card)", border: "1px solid var(--line)", borderRadius: 10, padding: "7px 9px 7px 12px", boxShadow: "0 6px 20px var(--hairline)" }}>
         <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "var(--muted)" }}>System check</span>
         {["1", "2", "3"].map((d) => {
           const on = scVariant === d;
@@ -1516,7 +1516,7 @@ function DashEditorial({ initialRoute } = {}) {
           </div>
         )}
         <button onClick={() => setLayoutMenu((v) => !v)} title="Switch tasks layout"
-          style={{ display: "inline-flex", alignItems: "center", gap: 6, background: layoutMenu ? "#fff" : "rgba(255,255,255,.72)", color: layoutMenu ? "var(--primary)" : "var(--muted)", border: "1px solid var(--line)", borderRadius: 8, padding: "6px 11px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer", boxShadow: "0 2px 8px rgba(0,15,71,.06)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", opacity: layoutMenu ? 1 : 0.62, transition: "opacity .15s, color .15s, background .15s" }}
+          style={{ display: "inline-flex", alignItems: "center", gap: 6, background: layoutMenu ? "#fff" : "rgba(255,255,255,.72)", color: layoutMenu ? "var(--primary)" : "var(--muted)", border: "1px solid var(--line)", borderRadius: 8, padding: "6px 11px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer", boxShadow: "0 2px 8px var(--status-neutral-bg)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", opacity: layoutMenu ? 1 : 0.62, transition: "opacity .15s, color .15s, background .15s" }}
           onMouseEnter={(e) => { e.currentTarget.style.opacity = 1; e.currentTarget.style.color = "var(--primary)"; }}
           onMouseLeave={(e) => { if (!layoutMenu) { e.currentTarget.style.opacity = 0.62; e.currentTarget.style.color = "var(--muted)"; } }}>
           <I.layers size={14} /> Layout
@@ -1543,7 +1543,7 @@ function DashEditorial({ initialRoute } = {}) {
           </div>
         )}
         <button onClick={() => setHeroMenu((v) => !v)} title="Search for different card designs"
-          style={{ display: "inline-flex", alignItems: "center", gap: 6, background: heroMenu ? "#fff" : "rgba(255,255,255,.72)", color: heroMenu ? "var(--primary)" : "var(--muted)", border: "1px solid var(--line)", borderRadius: 8, padding: "6px 11px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer", boxShadow: "0 2px 8px rgba(0,15,71,.06)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", opacity: heroMenu ? 1 : 0.62, transition: "opacity .15s, color .15s, background .15s" }}
+          style={{ display: "inline-flex", alignItems: "center", gap: 6, background: heroMenu ? "#fff" : "rgba(255,255,255,.72)", color: heroMenu ? "var(--primary)" : "var(--muted)", border: "1px solid var(--line)", borderRadius: 8, padding: "6px 11px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer", boxShadow: "0 2px 8px var(--status-neutral-bg)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", opacity: heroMenu ? 1 : 0.62, transition: "opacity .15s, color .15s, background .15s" }}
           onMouseEnter={(e) => { e.currentTarget.style.opacity = 1; e.currentTarget.style.color = "var(--primary)"; }}
           onMouseLeave={(e) => { if (!heroMenu) { e.currentTarget.style.opacity = 0.62; e.currentTarget.style.color = "var(--muted)"; } }}>
           <I.panel size={14} /> Card design

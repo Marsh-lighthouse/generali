@@ -502,7 +502,7 @@ function EdBookings() {
               })}
             </div>}
           <button onClick={() => setSampleMenu((v) => !v)} title="Choose a booking-card layout"
-            style={{ display: "inline-flex", alignItems: "center", gap: 8, background: kCARD, color: kMID, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, padding: "7px 13px", borderRadius: 9, border: "1px solid " + kLINE, boxShadow: "0 3px 12px rgba(0,15,71,.12)", cursor: "pointer" }}>
+            style={{ display: "inline-flex", alignItems: "center", gap: 8, background: kCARD, color: kMID, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, padding: "7px 13px", borderRadius: 9, border: "1px solid " + kLINE, boxShadow: "0 3px 12px var(--hairline)", cursor: "pointer" }}>
             <span style={{ display: "flex", color: kMUT }}><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="7" rx="1.5" /><rect x="3" y="14" width="18" height="6" rx="1.5" /></svg></span>
             Card style · {activeSample.name}
             <span style={{ display: "flex", color: kMUT, transition: "transform .18s", transform: sampleMenu ? "rotate(180deg)" : "none" }}><I.chevD size={15} /></span>
