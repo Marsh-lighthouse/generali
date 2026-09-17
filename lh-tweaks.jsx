@@ -164,7 +164,7 @@ function LighthouseTweaks() {
     const r = document.documentElement.style;
     const dark = themeMode === "dark";
     // Canvas is dark for every brand in dark mode (else the Tweaks value).
-    r.setProperty("--canvas", dark ? "#0B1220" : t.canvas);
+    r.setProperty("--canvas", dark ? "#0E0E0E" : t.canvas);
     // When a client brand (DGE / Generali) is active it owns the color vars
     // (client-brand.js, which is also dark-aware).
     if (window.LHBrand && window.LHBrand.current() !== "marsh") return;
