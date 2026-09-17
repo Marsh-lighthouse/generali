@@ -476,7 +476,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                   <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: eINK, lineHeight: 1.35, paddingRight: 8 }}>{it}</div>
                   {q.cols.map((c, ci) => (
                     <div key={ci} style={{ display: "flex", justifyContent: "center" }}>
-                      <button onClick={() => onChange({ ...a2, [ri]: ci })} aria-label={it + " — " + c} style={{ width: 24, height: 24, borderRadius: "50%", border: "2px solid " + (a2[ri] === ci ? eBLUE : "var(--control-line)"), background: a2[ri] === ci ? eBLUE : "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .15s" }}>{a2[ri] === ci && <div style={{ width: 9, height: 9, borderRadius: "50%", background: "var(--card)" }} />}</button>
+                      <button onClick={() => onChange({ ...a2, [ri]: ci })} aria-label={it + " — " + c} style={{ width: 24, height: 24, borderRadius: "50%", border: "2px solid " + (a2[ri] === ci ? eGOLD : "var(--control-line)"), background: a2[ri] === ci ? eGOLD : "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .15s" }}>{a2[ri] === ci && <div style={{ width: 9, height: 9, borderRadius: "50%", background: "var(--on-accent)" }} />}</button>
                     </div>
                   ))}
                 </div>
@@ -762,7 +762,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                   <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: eINK, lineHeight: 1.35, paddingRight: 8 }}>{row}</div>
                   {q.cols.map((col, ci) =>
                     <div key={ci} style={{ display: "flex", justifyContent: "center" }}>
-                      <button onClick={() => onChange({ ...a, [ri]: ci })} style={{ width: 26, height: 26, borderRadius: "50%", border: "2px solid " + (a[ri] === ci ? eBLUE : "var(--control-line)"), background: a[ri] === ci ? eBLUE : "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .15s" }}>{a[ri] === ci && <div style={{ width: 9, height: 9, borderRadius: "50%", background: "var(--card)" }} />}</button>
+                      <button onClick={() => onChange({ ...a, [ri]: ci })} style={{ width: 26, height: 26, borderRadius: "50%", border: "2px solid " + (a[ri] === ci ? eGOLD : "var(--control-line)"), background: a[ri] === ci ? eGOLD : "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .15s" }}>{a[ri] === ci && <div style={{ width: 9, height: 9, borderRadius: "50%", background: "var(--on-accent)" }} />}</button>
                     </div>
                   )}
                   {q.rowText
@@ -781,7 +781,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
          Part of the matrix-table family: pick left or right for each statement. */}
       {q.type === "bipolar" && (() => {
         const a2 = value || {};
-        const dot = (on) => <span style={{ width: 20, height: 20, flexShrink: 0, borderRadius: "50%", border: "2px solid " + (on ? eBLUE : "var(--control-line)"), background: on ? eBLUE : "transparent", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>{on && <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--card)" }} />}</span>;
+        const dot = (on) => <span style={{ width: 20, height: 20, flexShrink: 0, borderRadius: "50%", border: "2px solid " + (on ? eGOLD : "var(--control-line)"), background: on ? eGOLD : "transparent", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>{on && <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--on-accent)" }} />}</span>;
         if (compact) {
           return (
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
