@@ -310,7 +310,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
               const sel = isSel(oi);
               return (
                 <button key={oi} onClick={() => toggle(oi)} style={{ display: "flex", alignItems: "flex-start", gap: 12, padding: "14px 16px", borderRadius: 12, border: "1.5px solid " + (sel ? eBLUE : eLINE), background: sel ? "color-mix(in srgb, var(--accent) 5%, transparent)" : eCARD, cursor: "pointer", textAlign: "left", width: "100%", transition: "all .15s" }}>
-                  <div style={{ width: 20, height: 20, borderRadius: multi ? 5 : "50%", border: "2px solid " + (sel ? eGOLD : "var(--control-line)"), background: sel ? eGOLD : "transparent", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 }}>{multi ? (sel && <I.check size={13} />) : (sel && <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#FEFEFE" }} />)}</div>
+                  <div style={{ width: 20, height: 20, borderRadius: multi ? 5 : "50%", border: "2px solid " + (sel ? eGOLD : "var(--control-line)"), background: sel ? eGOLD : "transparent", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 }}>{multi ? (sel && <I.check size={13} />) : (sel && <div style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--on-accent)" }} />)}</div>
                   <span style={{ fontFamily: "var(--sans)", fontSize: 15, color: sel ? eMID : eINK, fontWeight: 400, lineHeight: 1.45 }}>{opt}</span>
                 </button>);
             })}
@@ -669,7 +669,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                           onDragEnd={() => setRankDrag(null)}
                           style={{ display: "flex", alignItems: "stretch", borderRadius: 12, background: "var(--card)", border: "1px solid " + (dragging ? eBLUE : eLINE), overflow: "hidden", cursor: "grab", boxShadow: dragging ? "0 10px 24px rgba(0,15,71,.14)" : "none", transition: "box-shadow .15s, border-color .15s" }}>
                           <span style={{ display: "flex", alignItems: "center", paddingLeft: 14, color: eMUT, flexShrink: 0 }} aria-hidden="true">{grip}</span>
-                          <span className="serif" style={{ width: 56, flexShrink: 0, background: "var(--surface-deep)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 21, margin: "0 16px" }}>{i + 1}</span>
+                          <span className="serif" style={{ width: 56, flexShrink: 0, background: "var(--action)", color: "var(--action-text)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 21, margin: "0 16px" }}>{i + 1}</span>
                           <span style={{ flex: 1, fontFamily: "var(--sans)", fontSize: 15, color: eINK, lineHeight: 1.5, padding: "16px 0", alignSelf: "center" }}>{item}</span>
                           <button onClick={() => removeItem(item)} title="Return to options" aria-label="Return to options" style={{ flexShrink: 0, width: 48, background: "none", border: "none", borderLeft: "1px solid " + eLINE, color: eMUT, cursor: "pointer", fontFamily: "var(--sans)", fontSize: 21, lineHeight: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>&times;</button>
                         </div>);
@@ -717,7 +717,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                   const sel = a[ri] === ci;
                   return (
                     <button key={ci} className="oa-mopt" onClick={() => onChange({ ...a, [ri]: ci })} style={{ flex: single ? "none" : "1 1 auto", width: single ? "100%" : "auto", minWidth: single ? "auto" : 72, display: "inline-flex", alignItems: "center", justifyContent: single ? "flex-start" : "center", gap: single ? 10 : 7, padding: single ? "12px 14px" : "9px 12px", borderRadius: 9, border: "1.5px solid " + (sel ? eBLUE : eLINE), background: sel ? "color-mix(in srgb, var(--accent) 6%, transparent)" : "#fff", cursor: "pointer", transition: "all .15s" }}>
-                      <span style={{ width: 16, height: 16, flexShrink: 0, borderRadius: "50%", border: "2px solid " + (sel ? eGOLD : "var(--control-line)"), background: sel ? eGOLD : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>{sel && <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#FEFEFE" }} />}</span>
+                      <span style={{ width: 16, height: 16, flexShrink: 0, borderRadius: "50%", border: "2px solid " + (sel ? eGOLD : "var(--control-line)"), background: sel ? eGOLD : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>{sel && <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--on-accent)" }} />}</span>
                       <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: sel ? eMID : eINK }}>{col}</span>
                     </button>);
                 })}
@@ -1319,7 +1319,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                         const sel = v[si] && v[si][gi] === ci;
                         return (
                           <button key={ci} onClick={() => onChange({ ...v, [si]: { ...(v[si] || {}), [gi]: ci } })} style={{ flex: "1 1 0", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 7, padding: "9px 10px", borderRadius: 9, border: "1.5px solid " + (sel ? eBLUE : eLINE), background: sel ? "color-mix(in srgb, var(--accent) 6%, transparent)" : "#fff", cursor: "pointer" }}>
-                            <span style={{ width: 16, height: 16, flexShrink: 0, borderRadius: "50%", border: "2px solid " + (sel ? eGOLD : "var(--control-line)"), background: sel ? eGOLD : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>{sel && <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#FEFEFE" }} />}</span>
+                            <span style={{ width: 16, height: 16, flexShrink: 0, borderRadius: "50%", border: "2px solid " + (sel ? eGOLD : "var(--control-line)"), background: sel ? eGOLD : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>{sel && <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--on-accent)" }} />}</span>
                             <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: sel ? eMID : eINK }}>{c}</span>
                           </button>);
                       })}
@@ -1352,7 +1352,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                 const sel = v[si] && v[si][gi] === ci;
                 return (
                   <td key={gi + "-" + ci} style={{ textAlign: "center", padding: "12px 8px" }}>
-                    <button onClick={() => onChange({ ...v, [si]: { ...(v[si] || {}), [gi]: ci } })} style={{ width: 22, height: 22, borderRadius: "50%", border: "2px solid " + (sel ? eGOLD : "var(--control-line)"), background: sel ? eGOLD : "transparent", cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", padding: 0 }}>{sel && <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#FEFEFE", display: "block" }} />}</button>
+                    <button onClick={() => onChange({ ...v, [si]: { ...(v[si] || {}), [gi]: ci } })} style={{ width: 22, height: 22, borderRadius: "50%", border: "2px solid " + (sel ? eGOLD : "var(--control-line)"), background: sel ? eGOLD : "transparent", cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", padding: 0 }}>{sel && <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--on-accent)", display: "block" }} />}</button>
                   </td>);
               }))}
             </tr>
@@ -1427,7 +1427,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                   {q.scale.map((e, si) => {
                     const sel = row.s === si;
                     return <div key={si} style={{ display: "flex", justifyContent: "center" }}>
-                      <button onClick={() => set(ci, { s: si })} style={{ width: 20, height: 20, borderRadius: "50%", border: "2px solid " + (sel ? eGOLD : "var(--control-line)"), background: sel ? eGOLD : "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", padding: 0 }}>{sel && <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#FEFEFE", display: "block" }} />}</button>
+                      <button onClick={() => set(ci, { s: si })} style={{ width: 20, height: 20, borderRadius: "50%", border: "2px solid " + (sel ? eGOLD : "var(--control-line)"), background: sel ? eGOLD : "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", padding: 0 }}>{sel && <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--on-accent)", display: "block" }} />}</button>
                     </div>;
                   })}
                   <span style={{ display: "flex", justifyContent: "center", color: eMUT }}><I.arrow size={14} /></span>
