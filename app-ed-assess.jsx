@@ -11,11 +11,16 @@
 
 const { useState: oaUseState, useEffect: oaUseEffect, useRef: oaUseRef } = React;
 
-// The open assessment shows only the ORIGINAL representative questions (oq1..oqN —
-// MCQ, text, rank, matrix, file, audio), not the full type-sample bank that powers
-// the Question Types gallery. Pages are renumbered contiguously after filtering.
+// The open assessment shows the ORIGINAL representative questions (oq1..oqN —
+// MCQ, text, rank, matrix, file, audio, video) PLUS an additional set of question
+// types requested for this build (matrix-7, factor, constant-sum, numeric grid,
+// slider, side-by-side, image multi/choice, graphic slider + dial, bar/star grid,
+// gap, factor-feedback, pick-&-group, fill-gauge, shape-draw, captcha). They carry
+// the bank's own page numbers, so they slot onto pages 2–6 beside the originals.
+// Pages are renumbered contiguously after filtering.
 function oaInitialQuestions() {
-  const list = ((typeof window !== "undefined" && window.LH && LH.openAssessQuestions) || []).filter((q) => /^oq\d+$/.test(q.id) || q.id === "oq_video");
+  const EXTRA = ["oq_matrix7", "oq_factor", "oq_csum", "oq_numgrid_scale", "oq_slider", "oq_sbs", "oq_imgmulti", "oq_img", "oq_gslider", "oq_bargrid", "oq_stargrid", "oq_gap", "oq_skill", "oq_pgr", "oq_gslider_dial", "oq_fillgauge", "oq_shapedraw", "oq_captcha"];
+  const list = ((typeof window !== "undefined" && window.LH && LH.openAssessQuestions) || []).filter((q) => /^oq\d+$/.test(q.id) || q.id === "oq_video" || EXTRA.indexOf(q.id) >= 0);
   const pages = [];
   list.forEach((q) => { if (pages.indexOf(q.page) < 0) pages.push(q.page); });
   pages.sort((a, b) => a - b);
@@ -83,8 +88,8 @@ function EdAssessIntro({ exercise, onExit, onBegin }) {
       <h1 className="serif" style={{ fontSize: 40, color: eMID, lineHeight: 1.08, margin: "0 0 8px" }}>{title}</h1>
       <p style={{ fontFamily: "var(--sans)", fontSize: 15, color: eINK, lineHeight: 1.6, margin: "0 0 30px", maxWidth: 560 }}>This task includes {total} questions across different formats. Take your time — there are no time limits.</p>
       <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 32 }}>
-        {[{ ic: "fileText", t: `${total} questions`, d: "MCQ, text, ranking, matrix, file upload, audio, video" },
-        { ic: "clock", t: "~15 minutes", d: "No time limit — go at your own pace" },
+        {[{ ic: "fileText", t: `${total} questions`, d: "MCQ, text, ranking, matrix, sliders, grids, image choice, drawing, and more" },
+        { ic: "clock", t: "~25 minutes", d: "No time limit — go at your own pace" },
         { ic: "checkCircle", t: "Auto-save", d: "Answers saved as you go — resume anytime" },
         { ic: "lock", t: "Confidential", d: "Responses visible only to authorized assessors" }].map((it, i) => {
           const Ic = I[it.ic];
