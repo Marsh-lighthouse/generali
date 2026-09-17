@@ -851,7 +851,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                       const on = cur.includes(ci);
                       return (
                         <button key={ci} onClick={() => toggle(ri, ci)} aria-label={row + " — " + col} style={{ width: "100%", display: "inline-flex", alignItems: "center", justifyContent: "flex-start", gap: 10, padding: "10px 14px", borderRadius: 9, border: "1.5px solid " + (on ? eMID : eLINE), background: on ? "var(--track)" : "#fff", cursor: "pointer", textAlign: "left", transition: "all .15s" }}>
-                          <span style={{ width: 16, height: 16, flexShrink: 0, borderRadius: 5, border: "2px solid " + (on ? eMID : "var(--control-line)"), background: on ? eMID : "transparent", color: "var(--on-accent)", display: "flex", alignItems: "center", justifyContent: "center" }}>{on && <I.check size={11} />}</span>
+                          <span style={{ width: 16, height: 16, flexShrink: 0, borderRadius: 5, border: "2px solid " + (on ? eGOLD : "var(--control-line)"), background: on ? eGOLD : "transparent", color: "var(--on-accent)", display: "flex", alignItems: "center", justifyContent: "center" }}>{on && <I.check size={11} />}</span>
                           <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: on ? eMID : eINK }}>{col}</span>
                         </button>);
                     })}
@@ -921,7 +921,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                       </label>
                     ))}
                     {!q.noNa && <button onClick={() => setRow(ri, { na: !na })} aria-label={row + " — Not Applicable"} style={{ flex: "0 0 auto", height: 40, display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "0 12px", borderRadius: 8, border: "1.5px solid " + (na ? eMID : eLINE), background: na ? "var(--track)" : "#fff", cursor: "pointer", whiteSpace: "nowrap" }}>
-                      <span style={{ width: 16, height: 16, flexShrink: 0, borderRadius: 5, border: "2px solid " + (na ? eMID : "var(--control-line)"), background: na ? eMID : "transparent", color: "var(--on-accent)", display: "flex", alignItems: "center", justifyContent: "center" }}>{na && <I.check size={11} />}</span>
+                      <span style={{ width: 16, height: 16, flexShrink: 0, borderRadius: 5, border: "2px solid " + (na ? eGOLD : "var(--control-line)"), background: na ? eGOLD : "transparent", color: "var(--on-accent)", display: "flex", alignItems: "center", justifyContent: "center" }}>{na && <I.check size={11} />}</span>
                       <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: eMUT, whiteSpace: "nowrap" }}>Not Applicable</span>
                     </button>}
                   </div>
@@ -1041,7 +1041,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                 return (
                   <div key={ri} style={{ display: "grid", gridTemplateColumns: "minmax(120px,1.1fr) 3fr 64px", gap: 14, alignItems: "center" }}>
                     <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: eINK }}>{row}</div>
-                    <input type="range" min="0" max="100" step="10" value={set50 ?? 0} onChange={(e) => set(ri, Number(e.target.value))} className="oa-range" style={{ width: "100%", accentColor: eMID }} />
+                    <input type="range" min="0" max="100" step="10" value={set50 ?? 0} onChange={(e) => set(ri, Number(e.target.value))} className="oa-range" style={{ width: "100%", accentColor: eGOLD }} />
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
                       <div style={{ width: 56, height: 36, display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid " + eLINE, borderRadius: 8, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: set50 == null ? eMUT : eMID, background: eCARD }}>{set50 == null ? "–" : set50}</div>
                       <button onClick={() => { const n = { ...v }; delete n[ri]; onChange(n); }} style={{ background: "none", border: "none", color: eBLUE, cursor: "pointer", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, padding: 0 }}>Clear</button>
