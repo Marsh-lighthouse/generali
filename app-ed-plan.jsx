@@ -654,7 +654,7 @@ function PlCommentItem({ item, onReply, role = "me", names, onResolve, skillLabe
       <div style={{ flex: 1, minWidth: 0 }}>
         {/* The skill this comment belongs to, written small above it — so the flat
             "everything on first view" feed keeps its context without a tag pill. */}
-        {skillLabel && <div style={{ fontFamily: "var(--sans)", fontSize: 11.5, color: eMUT, marginBottom: 2 }}>{skillLabel}</div>}
+        {skillLabel && <span style={{ display: "inline-block", marginBottom: 6, padding: "3px 9px", borderRadius: 6, border: "1px solid " + eLINE, background: "color-mix(in srgb, var(--accent) 7%, var(--card))", color: eMID, fontFamily: "var(--sans)", fontSize: 13, fontWeight: 400, lineHeight: 1.3 }}>{skillLabel}</span>}
         <div style={{ display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
           <span style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, color: eMID }}>{name}</span>
           <span style={{ fontFamily: "var(--sans)", fontSize: 11.5, color: eMUT }}>{item.time}</span>
@@ -671,7 +671,7 @@ function PlCommentItem({ item, onReply, role = "me", names, onResolve, skillLabe
           )}
           {/* Jump straight to this comment's skill on the plan, no thread hop needed. */}
           {onGoToSkill && (
-            <button onClick={onGoToSkill} style={{ ...plCLink, fontWeight: 700 }}>
+            <button onClick={onGoToSkill} style={plCLink}>
               Go to skill <I.chevR size={13} />
             </button>
           )}
@@ -795,13 +795,15 @@ function PlComments({ chip, onClose, onOpen, role = "me", owner = "john", names,
   const openCount = inThread ? thread.filter((c) => !c.resolved).length : inboxOpen.length;
   const doneCount = inThread ? thread.length - thread.filter((c) => !c.resolved).length : inboxDone.length;
   const allCount = inThread ? thread.length : rowsAll.length;
+  // Total comments across all threads (respecting the filter) — shown in the header as "Comments (N)".
+  const totalComments = Object.keys(store).reduce((n, name) => n + (store[name] || []).filter((c) => filter === "all" || !!c.resolved === (filter === "resolved")).length, 0);
 
   return (
     <aside className="ed-idp-notes" style={{ position: "fixed", top: 59, right: 0, bottom: 0, width: 344, zIndex: 40, background: eCARD, borderLeft: "1px solid " + eLINE, display: "flex", flexDirection: "column" }}>
       {/* header */}
       <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "14px 16px", borderBottom: "1px solid " + eLINE, flexShrink: 0 }}>
         {inThread && <button onClick={() => onOpen("")} title="All conversations" style={{ background: "none", border: "none", cursor: "pointer", color: eMID, display: "flex", flexShrink: 0, padding: 2 }}><I.arrowL size={18} /></button>}
-        <div style={{ flex: 1, minWidth: 0, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: eMID, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{inThread ? chip : "Comments"}</div>
+        <div style={{ flex: 1, minWidth: 0, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: eMID, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{inThread ? chip : ("Comments" + (expanded ? " (" + totalComments + ")" : ""))}</div>
         <div ref={filterRef} style={{ position: "relative", display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
           <button onClick={() => setFilterMenu((v) => !v)} title={filter === "open" ? "Filter comments" : "Showing " + filter}
             style={{ background: "none", border: "none", cursor: "pointer", color: filter === "open" ? eMUT : eBLUE, display: "flex", padding: 2 }}>
@@ -840,12 +842,10 @@ function PlComments({ chip, onClose, onOpen, role = "me", owner = "john", names,
             items: (store[name] || []).map((c, i) => ({ c, i })).filter((x) => pass(x.c)),
           })).filter((g) => g.items.length);
           const total = groups.reduce((n, g) => n + g.items.length, 0);
-          const goFor = (name) => (name !== PL_OVERALL && inPlan(name)) ? (() => plGoToSkill(name)) : undefined;
+          // Every skill-related comment gets a "Go to skill" link (never the plan-level thread).
+          const goFor = (name) => (name !== PL_OVERALL) ? (() => plGoToSkill(name)) : undefined;
           return (
             <div style={{ flex: 1, overflowY: "auto", padding: "14px 16px 8px" }}>
-              <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: eMUT, padding: "0 0 12px" }}>
-                {total} {total === 1 ? "comment" : "comments"} · {design === 3 ? "grouped by skill" : "all on one view"}
-              </div>
               {total === 0 && <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: eMUT, textAlign: "center", padding: "26px 0" }}>{filter === "resolved" ? "Nothing resolved yet." : "No open comments."}</div>}
               {design === 3
                 ? groups.map((g) => (
@@ -868,7 +868,7 @@ function PlComments({ chip, onClose, onOpen, role = "me", owner = "john", names,
         <React.Fragment>
           <div style={{ flex: 1, overflowY: "auto", padding: "16px 16px 8px" }}>
             {visible.length
-              ? visible.map(({ c, i }) => <PlCommentItem key={i} item={c} onReply={addReply(i)} onResolve={setResolved(i)} role={role} names={NAMES} />)
+              ? visible.map(({ c, i }) => <PlCommentItem key={i} item={c} onReply={addReply(i)} onResolve={setResolved(i)} onGoToSkill={chip && chip !== PL_OVERALL ? () => plGoToSkill(chip) : undefined} skillLabel={chip && chip !== PL_OVERALL ? chip : null} role={role} names={NAMES} />)
               : <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: eMUT, textAlign: "center", padding: "26px 0" }}>
                   {thread.length === 0 ? "No comments yet. Start the conversation below."
                     : filter === "resolved" ? "Nothing resolved yet." : "All comments here are resolved."}
@@ -911,7 +911,7 @@ function PlComments({ chip, onClose, onOpen, role = "me", owner = "john", names,
                         a link that would go nowhere. */}
                     {!r.overall && (inPlan(r.name) ? (
                       <button onClick={(e) => { e.stopPropagation(); plGoToSkill(r.name); }}
-                        style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 4, background: "none", border: "none", padding: 0, cursor: "pointer", color: eBLUE, fontFamily: "var(--sans)", fontSize: 11.5, fontWeight: 700 }}>
+                        style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 4, background: "none", border: "none", padding: 0, cursor: "pointer", color: eBLUE, fontFamily: "var(--sans)", fontSize: 11.5, fontWeight: 400 }}>
                         Go to skill <I.chevR size={13} />
                       </button>
                     ) : (
@@ -1578,7 +1578,7 @@ function EdPlanPage({ onBack, onRestart, startLocked }) {
                 // per-skill change summary — the same block the manager reads, under each skill
                 const changesNode = skillChanges.length > 0 ? (
                   <div style={{ background: "rgba(0,15,71,.03)", border: "1px solid " + eLINE, borderRadius: 10, padding: "13px 16px", marginTop: 4 }}>
-                    <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: eMID, marginBottom: 7 }}>Change summary</div>
+                    <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, color: eMID, marginBottom: 7 }}>Change summary</div>
                     <ul style={{ margin: 0, paddingLeft: 18 }}>
                       {skillChanges.map((c, i) => (
                         <li key={i} style={{ fontFamily: "var(--sans)", fontSize: 13, color: eINK, lineHeight: 1.9 }}>
@@ -1927,7 +1927,7 @@ function PlBreakdownChip({ data }) {
 
 // Summary bar under the tabs — plan-wide roll-up (Sample 10 only).
 function PlPlanSummary({ stats, status, lead, hideStatus, mt, mb, data, design }) {
-  const lbl = { fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: eMUT, marginBottom: 6 };
+  const lbl = { fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, color: eMID, marginBottom: 6 };
   const big = { fontFamily: "var(--sans)", fontSize: 21, fontWeight: 400, color: eMID, lineHeight: 1.1 };
   const cell = (last) => ({ flex: "1 1 140px", minWidth: 120, padding: "14px 18px", borderRight: last ? "none" : "1px solid " + eLINE });
   // Design 2 — totals with a Behavioral / Technical split under Skills and Development
