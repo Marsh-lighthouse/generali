@@ -593,14 +593,14 @@ function MdsAlert({ severity = "info", title, children, date, mt, mb, align = "f
   const Ic = I[s.icon];
   return (
     <div role={key === "success" || key === "info" ? "status" : "alert"}
-      style={{ display: "flex", alignItems: align, gap: 10, background: s.fill, border: "1px solid " + s.accent, borderRadius: 8, padding: "14px 16px", boxShadow: "0 2px 4px -2px rgba(0,0,0,.1), 0 4px 6px -1px rgba(0,0,0,.1)", marginTop: mt || 0, marginBottom: mb != null ? mb : 0, ...(style || {}) }}>
+      style={{ display: "flex", alignItems: align, gap: 10, background: "color-mix(in srgb, " + s.accent + " 12%, var(--card))", border: "1px solid " + s.accent, borderRadius: 8, padding: "14px 16px", boxShadow: "0 2px 4px -2px rgba(0,0,0,.1), 0 4px 6px -1px rgba(0,0,0,.1)", marginTop: mt || 0, marginBottom: mb != null ? mb : 0, ...(style || {}) }}>
       <span style={{ flexShrink: 0, width: 20, height: 20, display: "flex", alignItems: "center", justifyContent: "center", color: s.accent, marginTop: align === "flex-start" ? 1 : 0 }}><Ic size={18} /></span>
-      <div style={{ flex: "1 1 auto", fontFamily: "var(--sans)", fontSize: 15, lineHeight: 1.5, color: "#000F47", minWidth: 0 }}>
+      <div style={{ flex: "1 1 auto", fontFamily: "var(--sans)", fontSize: 15, lineHeight: 1.5, color: "var(--ink)", minWidth: 0 }}>
         {title ? <div style={{ fontWeight: 700, marginBottom: (children != null || date) ? 4 : 0 }}>{title}</div> : null}
         {children != null ? <div style={{ fontWeight: 400 }}>{children}</div> : null}
         {date ? <div style={{ fontWeight: 400, opacity: .8, marginTop: 8 }}>{date}</div> : null}
       </div>
-      {onClose ? <button onClick={onClose} title="Dismiss" style={{ flexShrink: 0, background: "none", border: "none", cursor: "pointer", color: "#000F47", display: "flex", padding: 2, marginTop: align === "flex-start" ? -1 : 0 }}><I.plus size={14} style={{ transform: "rotate(45deg)" }} /></button> : null}
+      {onClose ? <button onClick={onClose} title="Dismiss" style={{ flexShrink: 0, background: "none", border: "none", cursor: "pointer", color: "var(--ink)", display: "flex", padding: 2, marginTop: align === "flex-start" ? -1 : 0 }}><I.plus size={14} style={{ transform: "rotate(45deg)" }} /></button> : null}
     </div>
   );
 }

@@ -106,7 +106,7 @@ function PlThumb({ mix, seed, size = 78 }) {
 function PlThumbIcon({ mix, size = 78 }) {
   const m = PL_LEARN[mix]; const Ic = I[m.icon];
   return (
-    <div style={{ width: size, height: size, borderRadius: 11, flexShrink: 0, position: "relative", overflow: "hidden", background: "linear-gradient(135deg, color-mix(in srgb, " + m.color + " 68%, #fff), " + m.color + ")", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "inset 0 0 0 1px rgba(255,255,255,.18)" }}>
+    <div style={{ width: size, height: size, borderRadius: 11, flexShrink: 0, position: "relative", overflow: "hidden", background: "linear-gradient(135deg, color-mix(in srgb, " + m.color + " 68%, var(--card)), " + m.color + ")", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "inset 0 0 0 1px rgba(255,255,255,.18)" }}>
       <span style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 28% 22%, rgba(255,255,255,.28), transparent 62%)" }} />
       <span style={{ position: "relative", color: "#fff", display: "flex", opacity: .95 }}><Ic size={Math.round(size * 0.4)} /></span>
     </div>
@@ -127,9 +127,9 @@ function PlInfoTip({ text, label }) {
         <I.info size={14} />
       </button>
       {open && (
-        <span role="tooltip" style={{ position: "absolute", bottom: "calc(100% + 8px)", left: "50%", transform: "translateX(-50%)", width: "max-content", maxWidth: 256, background: "#FFFFFF", color: eMID, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, lineHeight: 1.43, borderRadius: 4, padding: "8px 10px", boxShadow: "0 2px 4px -2px rgba(0,0,0,.1), 0 4px 6px -1px rgba(0,0,0,.1)", zIndex: 80, textAlign: "left", pointerEvents: "none" }}>
+        <span role="tooltip" style={{ position: "absolute", bottom: "calc(100% + 8px)", left: "50%", transform: "translateX(-50%)", width: "max-content", maxWidth: 256, background: "var(--card)", color: eMID, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, lineHeight: 1.43, borderRadius: 4, padding: "8px 10px", boxShadow: "0 2px 4px -2px rgba(0,0,0,.1), 0 4px 6px -1px rgba(0,0,0,.1)", zIndex: 80, textAlign: "left", pointerEvents: "none" }}>
           {text}
-          <span style={{ position: "absolute", top: "100%", left: "50%", marginLeft: -6, borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid #FFFFFF" }} />
+          <span style={{ position: "absolute", top: "100%", left: "50%", marginLeft: -6, borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid var(--card)" }} />
         </span>
       )}
     </span>
@@ -156,9 +156,9 @@ function PlSrcIcon({ src }) {
         <Ic size={15} />
       </span>
       {open && (
-        <span role="tooltip" style={{ position: "absolute", bottom: "calc(100% + 8px)", left: "50%", transform: "translateX(-50%)", width: "max-content", maxWidth: 256, background: "#FFFFFF", color: eMID, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, lineHeight: 1.43, borderRadius: 4, padding: "8px 10px", boxShadow: "0 2px 4px -2px rgba(0,0,0,.1), 0 4px 6px -1px rgba(0,0,0,.1)", zIndex: 80, textAlign: "left", pointerEvents: "none" }}>
+        <span role="tooltip" style={{ position: "absolute", bottom: "calc(100% + 8px)", left: "50%", transform: "translateX(-50%)", width: "max-content", maxWidth: 256, background: "var(--card)", color: eMID, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, lineHeight: 1.43, borderRadius: 4, padding: "8px 10px", boxShadow: "0 2px 4px -2px rgba(0,0,0,.1), 0 4px 6px -1px rgba(0,0,0,.1)", zIndex: 80, textAlign: "left", pointerEvents: "none" }}>
           {s.label}
-          <span style={{ position: "absolute", top: "100%", left: "50%", marginLeft: -6, borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid #FFFFFF" }} />
+          <span style={{ position: "absolute", top: "100%", left: "50%", marginLeft: -6, borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid var(--card)" }} />
         </span>
       )}
     </span>
@@ -893,9 +893,9 @@ function PlComments({ chip, onClose, onOpen, role = "me", owner = "john", names,
             return (
               <div key={i} role="button" tabIndex={0} onClick={() => onOpen(r.name)}
                 onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(r.name); } }}
-                style={{ width: "100%", textAlign: "left", display: "flex", gap: 11, alignItems: "flex-start", padding: 12, borderRadius: 4, border: "1px solid " + (r.unread ? "color-mix(in srgb, var(--danger) 30%, transparent)" : "#DEDBD6"), background: "#F9F5F1", cursor: "pointer", marginBottom: 8, boxSizing: "border-box" }}
-                onMouseEnter={(e) => e.currentTarget.style.background = "#F2ECE4"}
-                onMouseLeave={(e) => e.currentTarget.style.background = "#F9F5F1"}>
+                style={{ width: "100%", textAlign: "left", display: "flex", gap: 11, alignItems: "flex-start", padding: 12, borderRadius: 4, border: "1px solid " + (r.unread ? "color-mix(in srgb, var(--danger) 30%, transparent)" : "#DEDBD6"), background: "var(--card)", cursor: "pointer", marginBottom: 8, boxSizing: "border-box" }}
+                onMouseEnter={(e) => e.currentTarget.style.background = "color-mix(in srgb, var(--primary) 6%, var(--card))"}
+                onMouseLeave={(e) => e.currentTarget.style.background = "var(--card)"}>
                 <span style={{ width: 36, height: 36, borderRadius: "50%", background: mine ? eBLUE : "var(--surface-deep)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--sans)", fontSize: 11.5, fontWeight: 700, flexShrink: 0 }}>{r.last ? plInitials(lastName) : <I.chat size={16} />}</span>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 8 }}>

@@ -449,7 +449,7 @@ function EdScheduling({ onBack, initialCenter, demo, onView }) {
     return (
       <div style={{ maxWidth: "var(--content-max)", margin: "36px var(--fol-mx) 72px", padding: 0 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 15, marginBottom: 18 }}>
-          <div style={{ width: 50, height: 50, borderRadius: "50%", background: "color-mix(in srgb, " + c.color + " 12%, #fff)", border: "1px solid color-mix(in srgb, " + c.color + " 24%, transparent)", color: c.color, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Ic size={23} /></div>
+          <div style={{ width: 50, height: 50, borderRadius: "50%", background: "color-mix(in srgb, " + c.color + " 12%, var(--card))", border: "1px solid color-mix(in srgb, " + c.color + " 24%, transparent)", color: c.color, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Ic size={23} /></div>
           <div>
             <h1 className="serif" style={{ fontSize: 28, color: eMID, lineHeight: 1.08, margin: "0 0 2px" }}>{c.name}</h1>
             <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: eMUT }}>{c.program}</div>
@@ -618,9 +618,9 @@ function EdScheduling({ onBack, initialCenter, demo, onView }) {
                     const tint = isBooked ? eSUCCESS : eBLUE;
                     return (
                       <div key={ei} onClick={(ev) => { const blockRect = ev.currentTarget.getBoundingClientRect(); const wrap = calWrapRef.current; const wRect = wrap ? wrap.getBoundingClientRect() : { left: 0, top: 0, width: 1 }; const scale = (wrap && wrap.offsetWidth) ? (wRect.width / wrap.offsetWidth) : 1; setPop({ slot: e.slot, center: e.center, program: e.program, booked: isBooked, relLeft: (blockRect.left - wRect.left) / scale, relRight: (blockRect.right - wRect.left) / scale, relTop: (blockRect.top - wRect.top) / scale }); }}
-                        style={{ position: "absolute", top: top + 2, left: 4, right: 4, height, background: "color-mix(in srgb, " + tint + " 9%, #fff)", borderLeft: "3px solid " + tint, borderRadius: 8, padding: "7px 9px", cursor: "pointer", overflow: "hidden", transition: "background .15s" }}
-                        onMouseEnter={(ev) => ev.currentTarget.style.background = "color-mix(in srgb, " + tint + " 16%, #fff)"}
-                        onMouseLeave={(ev) => ev.currentTarget.style.background = "color-mix(in srgb, " + tint + " 9%, #fff)"}>
+                        style={{ position: "absolute", top: top + 2, left: 4, right: 4, height, background: "color-mix(in srgb, " + tint + " 9%, var(--card))", borderLeft: "3px solid " + tint, borderRadius: 8, padding: "7px 9px", cursor: "pointer", overflow: "hidden", transition: "background .15s" }}
+                        onMouseEnter={(ev) => ev.currentTarget.style.background = "color-mix(in srgb, " + tint + " 16%, var(--card))"}
+                        onMouseLeave={(ev) => ev.currentTarget.style.background = "color-mix(in srgb, " + tint + " 9%, var(--card))"}>
                         <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: eMID, lineHeight: 1.2, marginBottom: 3, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{slotTime(e.slot.time)}</div>
                         <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
                             {isBooked ? (

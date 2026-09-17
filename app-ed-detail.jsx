@@ -217,7 +217,7 @@ function EdInstructions({ prog, watched, onWatch, acked, onContinue, onBack }) {
             </div> :
 
           <React.Fragment>
-              <div style={{ width: 60, height: 60, borderRadius: "50%", background: eSKY, color: "#0B1220", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 28px rgba(0,0,0,.3)" }}><I.play size={24} /></div>
+              <div style={{ width: 60, height: 60, borderRadius: "50%", background: eSKY, color: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 28px rgba(0,0,0,.3)" }}><I.play size={24} /></div>
               <span style={{ color: "#fff", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700 }}>{t("watchIntroductionVideo")} ({d.videoLen})</span>
             </React.Fragment>
           }
@@ -679,7 +679,7 @@ function EdTasks({ prog, onBack, onOpenCenter, onProctored, onOpenAssess, onSche
           <div style={{ position: "relative", width: "100%", paddingBottom: "50%", borderRadius: 16, overflow: "hidden", background: "var(--surface-deep)", marginBottom: 28 }}>
             <div style={{ position: "absolute", inset: 0, background: `radial-gradient(120% 120% at 20% 0%, rgba(170,27,23,.22), transparent 55%), linear-gradient(135deg, var(--surface-deep), color-mix(in srgb, var(--primary) 65%, #000))` }} />
             <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12 }}>
-              <div style={{ width: 60, height: 60, borderRadius: "50%", background: eSKY, color: "#0B1220", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 28px rgba(0,0,0,.3)" }}><I.play size={24} /></div>
+              <div style={{ width: 60, height: 60, borderRadius: "50%", background: eSKY, color: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 28px rgba(0,0,0,.3)" }}><I.play size={24} /></div>
               <span style={{ color: "#fff", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700 }}>Watch introduction video ({d.videoLen})</span>
             </div>
           </div>
@@ -1821,7 +1821,7 @@ function ScVideoLive({ setResult, onBack, onNext, vertical, panel, embed, onCapt
   const confirm = () => { setVstate("checking"); setTimeout(() => { stopStream(); setResult("pass"); setVstate("pass"); }, 1300); };
   const reRecord = () => { setVstate("preview"); };
 
-  const media = { position: "relative", width: "100%", background: "linear-gradient(160deg,#0a1a55,#000f47)", borderRadius: 14, overflow: "hidden", aspectRatio: panel ? "3 / 2" : mob ? "4 / 3" : "16 / 9" };
+  const media = { position: "relative", width: "100%", background: "linear-gradient(160deg,#242424,#141414)", borderRadius: 14, overflow: "hidden", aspectRatio: panel ? "3 / 2" : mob ? "4 / 3" : "16 / 9" };
   const overlay = { position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: mob ? 12 : 16, textAlign: "center", padding: mob ? 16 : 24, color: "#fff", zIndex: 2 };
   const chip = (icon, label) => <span title={label} style={{ background: "#DCE6F5", color: eMID, borderRadius: 8, padding: "5px 10px", fontFamily: "var(--sans)", fontSize: 11.5, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 6, maxWidth: 200, minWidth: 0 }}><span style={{ flexShrink: 0, display: "flex" }}>{icon}</span><span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", minWidth: 0 }}>{label}</span></span>;
   const liveVideo = <video ref={videoRef} autoPlay muted playsInline style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transform: "scaleX(-1)", zIndex: 0 }} />;

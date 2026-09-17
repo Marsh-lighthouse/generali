@@ -347,7 +347,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
         const words = (v.text || "").split(/\s+/).filter(Boolean).length;
         return (
           <div style={{ border: "1px solid var(--field-line)", borderRadius: 12, overflow: "hidden", background: eCARD }}>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 6, padding: 10, borderBottom: "1px solid " + eLINE, background: "color-mix(in srgb, var(--accent) 2%, #fff)" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 6, padding: 10, borderBottom: "1px solid " + eLINE, background: "color-mix(in srgb, var(--accent) 2%, var(--card))" }}>
               {tbtn(<b>B</b>, "bold", "Bold")}
               {tbtn(<i>I</i>, "italic", "Italic")}
               {tbtn(<u>U</u>, "underline", "Underline")}
@@ -420,7 +420,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
         const all = (q.botIntro ? [{ from: "bot", text: q.botIntro }] : []).concat(userMsgs);
         const send = () => { const t = (chatDraft || "").trim(); if (!t) return; onChange(userMsgs.concat([{ from: "user", text: t }])); setChatDraft(""); };
         const green = "var(--primary)"; // brand primary blue for the candidate's bubbles + send
-        const circle = (size, node) => <span style={{ width: size, height: size, borderRadius: "50%", background: "color-mix(in srgb, var(--ink) 8%, #fff)", color: eMUT, display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{node}</span>;
+        const circle = (size, node) => <span style={{ width: size, height: size, borderRadius: "50%", background: "color-mix(in srgb, var(--ink) 8%, var(--card))", color: eMUT, display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{node}</span>;
         return (
           <div style={{ border: "1px solid " + eLINE, borderRadius: 14, overflow: "hidden", background: eCARD }}>
             {q.subtitle && <div style={{ padding: "16px 18px 0", fontFamily: "var(--sans)", fontSize: 15, color: eMUT, lineHeight: 1.5 }}>{q.subtitle}</div>}
@@ -437,13 +437,13 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
                 return (
                   <div key={i} style={{ display: "flex", alignItems: "center", gap: 12 }}>
                     <span style={{ color: eMUT, display: "flex", flexShrink: 0 }} aria-hidden="true"><I.menu size={18} /></span>
-                    <div style={{ marginLeft: mine ? "auto" : 0, maxWidth: "75%", background: mine ? green : "color-mix(in srgb, var(--ink) 6%, #fff)", color: mine ? "#fff" : eINK, borderRadius: mine ? "14px 14px 4px 14px" : "14px 14px 14px 4px", padding: "12px 16px", fontFamily: "var(--sans)", fontSize: 15, lineHeight: 1.45 }}>{m.text}</div>
+                    <div style={{ marginLeft: mine ? "auto" : 0, maxWidth: "75%", background: mine ? green : "color-mix(in srgb, var(--ink) 6%, var(--card))", color: mine ? "#fff" : eINK, borderRadius: mine ? "14px 14px 4px 14px" : "14px 14px 14px 4px", padding: "12px 16px", fontFamily: "var(--sans)", fontSize: 15, lineHeight: 1.45 }}>{m.text}</div>
                   </div>
                 );
               })}
             </div>
             {/* composer bar — borderless input, inline dropdown, green circular send */}
-            <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", borderTop: "1px solid " + eLINE, background: "color-mix(in srgb, var(--ink) 3%, #fff)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", borderTop: "1px solid " + eLINE, background: "color-mix(in srgb, var(--ink) 3%, var(--card))" }}>
               <input value={chatDraft} onChange={(e) => setChatDraft(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); send(); } }} placeholder="Write your Message…"
                 style={{ flex: 1, minWidth: 0, border: "none", outline: "none", background: "transparent", fontFamily: "var(--sans)", fontSize: 15, color: eINK }} />
               <select defaultValue="Mine" style={{ ...oaSelectStyle, height: 38, padding: "0 34px 0 12px", border: "1px solid var(--field-line)", borderRadius: 8, backgroundColor: "#fff", backgroundImage: oaSelectStyle.backgroundImage, backgroundRepeat: "no-repeat", backgroundPosition: "right 12px center", color: eINK, fontFamily: "var(--sans)", fontSize: 15, outline: "none", flexShrink: 0 }}>
@@ -1638,7 +1638,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
         );
         return (
           <div>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "color-mix(in srgb, var(--ink) 5%, #fff)", color: eMUT, borderRadius: 999, padding: "4px 12px", fontFamily: "var(--sans)", fontSize: 13, marginBottom: 16 }}><I.info size={14} /> Not shown to the participant</div>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "color-mix(in srgb, var(--ink) 5%, var(--card))", color: eMUT, borderRadius: 999, padding: "4px 12px", fontFamily: "var(--sans)", fontSize: 13, marginBottom: 16 }}><I.info size={14} /> Not shown to the participant</div>
             {numField("Enable submit after (seconds)", "submitAfter")}
             {numField("Auto-advance after (seconds)", "autoAdvance")}
           </div>
@@ -1648,7 +1648,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
       {/* META INFO — hidden question: records the recipient's browser/device metadata */}
       {q.type === "metainfo" && (
         <div>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "color-mix(in srgb, var(--ink) 5%, #fff)", color: eMUT, borderRadius: 999, padding: "4px 12px", fontFamily: "var(--sans)", fontSize: 13, marginBottom: 14 }}><I.info size={14} /> Not shown to the user</div>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "color-mix(in srgb, var(--ink) 5%, var(--card))", color: eMUT, borderRadius: 999, padding: "4px 12px", fontFamily: "var(--sans)", fontSize: 13, marginBottom: 14 }}><I.info size={14} /> Not shown to the user</div>
           <ul style={{ margin: 0, paddingLeft: 20, fontFamily: "var(--sans)", fontSize: 15, color: eINK, lineHeight: 1.9 }}>
             {(q.fields || []).map((f, i) => <li key={i}>{f}</li>)}
           </ul>

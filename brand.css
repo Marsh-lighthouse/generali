@@ -29,12 +29,12 @@
   --midnight: #000F47;
   /* Generali build: the Marsh sky-blue tint becomes a soft tint of the brand
      primary, so raised/active surfaces keep their layering but read on-brand. */
-  --sky:      color-mix(in srgb, var(--primary) 9%, #ffffff);
+  --sky:      color-mix(in srgb, var(--primary) 9%, var(--card));
   --white:    #FFFFFF;
   /* Blue scale */
   --blue-750: var(--accent);
-  --blue-500: color-mix(in srgb, var(--primary) 35%, #ffffff);
-  --blue-250: color-mix(in srgb, var(--primary) 9%, #ffffff);
+  --blue-500: color-mix(in srgb, var(--primary) 35%, var(--card));
+  --blue-250: color-mix(in srgb, var(--primary) 9%, var(--card));
   /* Gold — action */
   --gold-1000:#CB7E03;
   --gold-750: #FFBF00;
@@ -45,8 +45,8 @@
   /* Generali build: fold the Marsh secondary purple scale into the brand accent. */
   --purple-1000:color-mix(in srgb, var(--accent) 80%, #000);
   --purple-750:var(--accent);
-  --purple-500:color-mix(in srgb, var(--accent) 45%, #ffffff);
-  --purple-250:color-mix(in srgb, var(--accent) 12%, #ffffff);
+  --purple-500:color-mix(in srgb, var(--accent) 45%, var(--card));
+  --purple-250:color-mix(in srgb, var(--accent) 12%, var(--card));
   /* Neutral — warm */
   --ink:       #3D3C37;   /* primary text on light */
   --muted:     #7B7974;   /* secondary text */
@@ -97,9 +97,9 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); }
   /* ── Neutrals derived from --primary (no flat warm grays) ──
      Secondary text, body, and borders are tints of the brand primary so the
      whole platform reads as one blue family and re-tints per client brand. */
-  --ink:   color-mix(in srgb, var(--primary) 88%, #ffffff);   /* body text */
-  --muted: color-mix(in srgb, var(--primary) 72%, #ffffff);   /* secondary / captions — darkened for contrast (WCAG) */
-  --line:  color-mix(in srgb, var(--primary) 18%, #ffffff);   /* borders / rules */
+  --ink:   color-mix(in srgb, var(--primary) 88%, var(--card));   /* body text */
+  --muted: color-mix(in srgb, var(--primary) 72%, var(--card));   /* secondary / captions — darkened for contrast (WCAG) */
+  --line:  color-mix(in srgb, var(--primary) 18%, var(--card));   /* borders / rules */
 
   /* Deep surface for dark decorative panels (video heroes, dashboard progress
      panel, FAB) that carry WHITE text. Defaults to --primary, but a client whose
@@ -120,7 +120,7 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); }
 
   /* Sky-tinted panel surface (Peekaboo hero / active nav). Light = sky blue;
      dark mode darkens it (see dark-theme.css). Sky used as TEXT stays #CEECFF. */
-  --sky-surface: color-mix(in srgb, var(--primary) 9%, #ffffff);
+  --sky-surface: color-mix(in srgb, var(--primary) 9%, var(--card));
   --status-neutral-bg: rgba(0,15,71,.06);   /* neutral "Not started" chip fill — theme-aware (dark override in dark-theme.css) */
   --control-line: rgba(0,15,71,.25);        /* form-control outlines: radio/checkbox bullets, dashed drop-zones */
   --track: rgba(0,15,71,.08);               /* progress / slider tracks, disabled fills */

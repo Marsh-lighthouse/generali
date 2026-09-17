@@ -153,7 +153,7 @@ function MnGettingStarted({ onNext }) {
             </div>
           ) : (
             <React.Fragment>
-              <div style={{ width: 60, height: 60, borderRadius: "50%", background: eSKY, color: "#0B1220", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 28px rgba(0,0,0,.3)" }}><I.play size={24} /></div>
+              <div style={{ width: 60, height: 60, borderRadius: "50%", background: eSKY, color: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 28px rgba(0,0,0,.3)" }}><I.play size={24} /></div>
               <span style={{ color: "#fff", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400 }}>Watch introduction (2 min)</span>
             </React.Fragment>
           )}
