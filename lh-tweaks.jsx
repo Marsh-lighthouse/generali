@@ -39,10 +39,10 @@ function DarkPaletteRef() {
   };
   const p = PER[brand] || PER.marsh;
   const items = [
-    ["Canvas", "#0B1220"], ["Card", "#151E30"],
-    ["Deep panel", "#1E2C46"], ["Sky panel", "#1C2A44"],
+    ["Canvas", "#0B1220"], ["Card", "#1A1A1A"],
+    ["Deep panel", "#242424"], ["Sky panel", "#262626"],
     ["Text", "#E9EEF6"], ["Muted", "#A4B2C6"],
-    ["Accent", p.accent], ["Rail", "#0B1526"],
+    ["Accent", p.accent], ["Rail", "#141414"],
     ["CTA fill", p.action], ["CTA text", p.actionText],
   ];
   return (
@@ -212,7 +212,7 @@ function LighthouseTweaks() {
       // icon takes a light tint of the brand accent. All values AA on the fill.
       const brand = (window.LHBrand && window.LHBrand.current()) || "marsh";
       const activeIcon = brand === "generali" ? "#FF8A85" : brand === "dge" ? "#9DBBD8" : "#A9C7F0";
-      set({ "--rail-bg": "#0B1526", "--rail-fg": "rgba(255,255,255,.82)", "--rail-icon": "rgba(255,255,255,.75)", "--rail-active-bg": "rgba(255,255,255,.14)", "--rail-active-fg": "#ffffff", "--rail-active-icon": activeIcon, "--rail-group": "rgba(255,255,255,.7)", "--rail-border": "rgba(255,255,255,.1)", "--rail-ring-track": "rgba(255,255,255,.28)", "--rail-cta-bg": "rgba(255,255,255,.95)", "--rail-cta-fg": "#0B1220", "--rail-cta-border": "transparent", "--rail-active-line": "rgba(255,255,255,.10)", "--rail-logo-white": "block", "--rail-logo-dark": "none" });
+      set({ "--rail-bg": "#141414", "--rail-fg": "rgba(255,255,255,.82)", "--rail-icon": "rgba(255,255,255,.75)", "--rail-active-bg": "rgba(255,255,255,.14)", "--rail-active-fg": "#ffffff", "--rail-active-icon": activeIcon, "--rail-group": "rgba(255,255,255,.7)", "--rail-border": "rgba(255,255,255,.1)", "--rail-ring-track": "rgba(255,255,255,.28)", "--rail-cta-bg": "rgba(255,255,255,.95)", "--rail-cta-fg": "#0B1220", "--rail-cta-border": "transparent", "--rail-active-line": "rgba(255,255,255,.10)", "--rail-logo-white": "block", "--rail-logo-dark": "none" });
       return;
     }
     if (t.sidebar === "White") {

@@ -1231,7 +1231,7 @@ function PlReportTab() {
             <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, letterSpacing: ".14em", textTransform: "uppercase", color: "color-mix(in srgb, var(--primary) 9%, #ffffff)", marginBottom: 14 }}>Confidential · For internal use only</div>
             <h1 className="serif" style={{ fontSize: 40, color: "#fff", lineHeight: 1.06, margin: 0, maxWidth: 440 }}>Leadership Program Report</h1>
           </div>
-          <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: "rgba(170,27,23,.7)" }}>Marsh · All rights reserved</div>
+          <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: "rgba(255,255,255,.7)" }}>Marsh · All rights reserved</div>
         </div>
       ) : (
         <div key={i} className="ed-report-page" style={{ ...a4, background: "var(--card)", border: "1px solid " + eLINE, padding: "48px 52px" }}>

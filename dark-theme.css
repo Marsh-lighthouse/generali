@@ -12,8 +12,8 @@
    ════════════════════════════════════════════════════════════════ */
 
 html[data-theme="dark"] {
-  --card:         #151E30;            /* elevated surface (cards, inputs)   */
-  --surface-deep: #1E2C46;            /* deep decorative panels (white text) */
+  --card:         #1A1A1A;            /* elevated surface (cards, inputs)   */
+  --surface-deep: #242424;            /* deep decorative panels (white text) */
   --ink:          #E9EEF6;            /* primary text  — ~14:1 on --card     */
   --muted:        #A4B2C6;            /* secondary text — ~7.5:1 on --card   */
   --line:         rgba(255,255,255,.15); /* borders / rules                  */
@@ -50,7 +50,7 @@ html[data-theme="dark"] select { color-scheme: dark; }
    data-URI) slip past the pure-white safety net — override just the colour layer,
    keeping the chevron image. */
 html[data-theme="dark"] select { background-color: var(--card) !important; }
-html[data-theme="dark"] select option { background: #151E30; color: #E9EEF6; }
+html[data-theme="dark"] select option { background: #1A1A1A; color: #E9EEF6; }
 /* Checkboxes / radios: render dark-native (unchecked box = dark, not bright white). */
 html[data-theme="dark"] input[type="checkbox"], html[data-theme="dark"] input[type="radio"] { color-scheme: dark; }
 
@@ -98,7 +98,7 @@ html[data-theme="dark"] .ed-report-page input[type="radio"] { color-scheme: ligh
 html[data-theme="dark"] { --success: #46D07C; --danger: #FF7B7B; --warning: #FBBF24; }
 
 /* Sky panel surface → dark elevated blue (Peekaboo hero / active nav). */
-html[data-theme="dark"] { --sky-surface: #1C2A44; }
+html[data-theme="dark"] { --sky-surface: #262626; }
 
 /* Neutral "Not started" chip fill → a light translucent so the chip is visible
    on the dark card instead of merging with it. */
@@ -112,10 +112,10 @@ html[data-theme="dark"] { --control-line: rgba(255,255,255,.35); --track: rgba(2
 html[data-theme="dark"] { --accent-2: #C89BF2; }
 
 /* Content on an accent/success fill flips to dark ink (those fills lighten in dark). */
-html[data-theme="dark"] { --on-accent: #0B1220; }
+html[data-theme="dark"] { --on-accent: #0E0E0E; }
 
 /* Page backdrop behind the shell. */
-html[data-theme="dark"] body { background: #0B1220; }
+html[data-theme="dark"] body { background: #0E0E0E; }
 
 /* Boardroom's Marsh wordmark is a dark-navy SVG <img> (no white variant);
    whiten it on the dark rail. (Client-brand logos swap to their white files.) */
@@ -128,16 +128,16 @@ html[data-theme="dark"] .bd-mercer-logo { filter: brightness(0) invert(1); }
 html[data-theme="dark"] .lh-back,
 html[data-theme="dark"] .lh-brand-chip,
 html[data-theme="dark"] .lh-tweak-fab {
-  background: rgba(21,30,48,.92) !important;
+  background: rgba(26,26,26,.92) !important;
   color: #C7D2E4 !important;
   border-color: rgba(255,255,255,.16) !important;
 }
-html[data-theme="dark"] .lh-brand-menu { background: #151E30; border-color: rgba(255,255,255,.16); }
+html[data-theme="dark"] .lh-brand-menu { background: #1A1A1A; border-color: rgba(255,255,255,.16); }
 html[data-theme="dark"] .lh-brand-title { color: #A4B2C6; }
 html[data-theme="dark"] .lh-brand-item { color: #C7D2E4; }
 html[data-theme="dark"] .lh-brand-item:hover { background: rgba(255,255,255,.06); }
 /* inline demo selector chips render with a translucent-white fill */
 html[data-theme="dark"] [style*="rgba(255, 255, 255, 0.72)"] {
-  background: rgba(21,30,48,.92) !important;
+  background: rgba(26,26,26,.92) !important;
   color: #C7D2E4 !important;
 }

@@ -1272,16 +1272,16 @@ function EdIdpFlow({ onExit, onDone, initialStep, onStep }) {
                     <h1 className="serif" style={{ fontSize: 40, color: "#fff", lineHeight: 1.06, margin: "0 0 26px", maxWidth: 440 }}>Leadership Program Report</h1>
                     <div style={{ borderTop: "1px solid rgba(255,255,255,.22)", paddingTop: 18, display: "flex", gap: 48, flexWrap: "wrap" }}>
                       <div>
-                        <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: "rgba(170,27,23,.75)", marginBottom: 5 }}>Report for</div>
+                        <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: "rgba(255,255,255,.75)", marginBottom: 5 }}>Report for</div>
                         <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "#fff" }}>{LH.user.first} {LH.user.last}</div>
                       </div>
                       <div>
-                        <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: "rgba(170,27,23,.75)", marginBottom: 5 }}>Based on</div>
+                        <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: "rgba(255,255,255,.75)", marginBottom: 5 }}>Based on</div>
                         <div style={{ fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, color: "#fff" }}>{rpt.based.join(", ")}</div>
                       </div>
                     </div>
                   </div>
-                  <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: "rgba(170,27,23,.7)" }}>Marsh · All rights reserved</div>
+                  <div style={{ fontFamily: "var(--sans)", fontSize: 15, color: "rgba(255,255,255,.7)" }}>Marsh · All rights reserved</div>
                 </div>
               );
             }
@@ -1335,7 +1335,7 @@ function EdIdpFlow({ onExit, onDone, initialStep, onStep }) {
             <circle cx="52" cy="120" r="3" fill="rgba(170,27,23,.45)" />
           </svg>
           <div style={{ marginTop: 20, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, color: "#fff" }}>AI Coach</div>
-          <div style={{ marginTop: 3, fontFamily: "var(--sans)", fontSize: 15, color: "rgba(170,27,23,.85)" }}>Your AI-assisted development coach</div>
+          <div style={{ marginTop: 3, fontFamily: "var(--sans)", fontSize: 15, color: "rgba(255,255,255,.85)" }}>Your AI-assisted development coach</div>
         </div>
         <div style={{ flex: "1 1 340px", minWidth: 280 }}>
           <h2 className="serif" style={{ fontSize: 21, color: eMID, margin: "0 0 14px" }}>Chat assistant introduction</h2>
