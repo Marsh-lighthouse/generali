@@ -51,7 +51,7 @@ function EdBtn({ children, primary, small, disabled, onClick, full, dark }) {
   };
   const style = dark ?
   (primary
-    ? { ...base, background: "#DCE6F5", color: eMID, border: "1.5px solid #DCE6F5" }
+    ? { ...base, background: eGOLD, color: "var(--action-text)", border: "1.5px solid transparent" }
     : { ...base, background: "transparent", color: "#fff", border: "1.5px solid rgba(255,255,255,.7)" }) :
   primary ?
   { ...base, background: eGOLD, color: "var(--action-text)", border: "1.5px solid transparent" } :
@@ -1331,7 +1331,7 @@ function ScPanel({ target, onBack, onLaunch, onStep, audioOnly }) {
             return (
               <div key={s.k} style={{ display: "flex", gap: 14, alignItems: "stretch" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 }}>
-                  <div style={{ width: 40, height: 40, borderRadius: "50%", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", background: dim ? scTint(eBLUE, "9%") : eBLUE, color: dim ? eMUT : "#fff", border: dim ? "1px solid " + scTint(eBLUE, "20%") : "none", boxShadow: active ? "0 0 0 4px " + scTint(eBLUE, "16%") : "none", transition: "background .2s, box-shadow .2s" }}>{done ? <I.check size={19} /> : (audioOnly && s.k === "video" ? <I.mic size={17} /> : s.icon)}</div>
+                  <div style={{ width: 40, height: 40, borderRadius: "50%", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", background: dim ? scTint(eBLUE, "9%") : eGOLD, color: dim ? eMUT : "#fff", border: dim ? "1px solid " + scTint(eBLUE, "20%") : "none", boxShadow: active ? "0 0 0 4px " + scTint(eBLUE, "16%") : "none", transition: "background .2s, box-shadow .2s" }}>{done ? <I.check size={19} /> : (audioOnly && s.k === "video" ? <I.mic size={17} /> : s.icon)}</div>
                   {!last && <div style={{ flex: 1, width: 2, minHeight: 20, background: done ? eBLUE : scTint(eMID, "12%"), margin: "6px 0" }} />}
                 </div>
                 <div style={{ flex: 1, minWidth: 0, paddingBottom: last ? 0 : 20, opacity: dim ? 0.7 : 1 }}>
@@ -1438,9 +1438,9 @@ function ScNetwork({ setResult, onBack, onNext, vertical, panel, audioOnly }) {
       {pending && (
         <div style={{ ...scCard, padding: "48px 22px", textAlign: "center" }}>
           <div style={{ position: "relative", width: 120, height: 120, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto" }}>
-            <span className="ed-ping" style={{ position: "absolute", inset: 0, borderRadius: "50%", border: "1px solid " + scTint(eMID, "25%") }} />
-            <span className="ed-ping" style={{ position: "absolute", inset: 18, borderRadius: "50%", border: "1px solid " + scTint(eMID, "35%"), animationDelay: ".4s" }} />
-            <span style={{ width: 64, height: 64, borderRadius: "50%", background: eMID, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}><I.wifi size={30} /></span>
+            <span className="ed-ping" style={{ position: "absolute", inset: 0, borderRadius: "50%", border: "1px solid " + scTint(eGOLD, "25%") }} />
+            <span className="ed-ping" style={{ position: "absolute", inset: 18, borderRadius: "50%", border: "1px solid " + scTint(eGOLD, "35%"), animationDelay: ".4s" }} />
+            <span style={{ width: 64, height: 64, borderRadius: "50%", background: eGOLD, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}><I.wifi size={30} /></span>
           </div>
           <p style={{ fontFamily: "var(--sans)", fontSize: 15, color: eMID, fontWeight: 400, margin: "26px 0 0" }}>{stage === "latency" ? "Checking latency…" : stage === "download" ? "Testing download speed…" : "Testing upload speed…"}</p>
           {stage !== "latency" && (
