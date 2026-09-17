@@ -186,7 +186,7 @@ function EdCard({ item, accent, icon, image, segTotal, segDone, onClick }) {
           isComplete ?
           <button onClick={onClick} style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "transparent", color: eMID, border: "1.5px solid " + eMID, borderRadius: 10, padding: "8px 16px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: onClick ? "pointer" : "default" }}>Review</button> :
 
-          <button onClick={onClick} style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "var(--primary)", color: "var(--on-accent)", border: "none", borderRadius: 10, padding: "9px 17px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>{pct > 0 ? "Continue" : "Start"} <I.arrow size={14} /></button>
+          <button onClick={onClick} style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "var(--action)", color: "var(--action-text)", border: "none", borderRadius: 10, padding: "9px 17px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>{pct > 0 ? "Continue" : "Start"} <I.arrow size={14} /></button>
           }
         </div>
       </div>
@@ -518,7 +518,7 @@ function EdTasks({ prog, onBack, onOpenCenter, onProctored, onOpenAssess, onSche
           <p style={{ fontFamily: "var(--sans)", fontSize: bannerMeta.big ? 15 : 15, fontWeight: 400, color: eINK, lineHeight: 1.55, margin: 0, maxWidth: 660 }}>{bannerMeta.body}</p>
         </div>
         {bannerMeta.cta &&
-          <button onClick={() => setTab("reports")} style={{ display: "inline-flex", alignItems: "center", gap: 8, flexShrink: 0, alignSelf: "center", background: "var(--primary)", color: "var(--on-accent)", border: "none", borderRadius: 10, padding: "10px 18px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>{bannerMeta.cta} <I.arrow size={15} /></button>}
+          <button onClick={() => setTab("reports")} style={{ display: "inline-flex", alignItems: "center", gap: 8, flexShrink: 0, alignSelf: "center", background: "var(--action)", color: "var(--action-text)", border: "none", borderRadius: 10, padding: "10px 18px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>{bannerMeta.cta} <I.arrow size={15} /></button>}
       </div>
     </div> : null;
 
@@ -534,7 +534,7 @@ function EdTasks({ prog, onBack, onOpenCenter, onProctored, onOpenAssess, onSche
         <span style={{ display: "inline-flex", alignItems: "center", gap: 7, flexShrink: 0, alignSelf: "center", color: eSUCCESS, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400 }}><I.check size={15} /> Completed</span> :
       locked ?
         <span style={{ display: "inline-flex", alignItems: "center", gap: 7, flexShrink: 0, alignSelf: "center", color: eMUT, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400 }}><I.lock size={15} /> Locked</span> :
-        <button onClick={() => onOpenCenter(c)} style={{ display: "inline-flex", alignItems: "center", gap: 8, flexShrink: 0, alignSelf: "center", background: "var(--primary)", color: "var(--on-accent)", border: "none", borderRadius: 10, padding: "10px 18px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>View Detail <I.arrow size={15} /></button>
+        <button onClick={() => onOpenCenter(c)} style={{ display: "inline-flex", alignItems: "center", gap: 8, flexShrink: 0, alignSelf: "center", background: "var(--action)", color: "var(--action-text)", border: "none", borderRadius: 10, padding: "10px 18px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>View Detail <I.arrow size={15} /></button>
       }
     </div>;
 
@@ -545,7 +545,7 @@ function EdTasks({ prog, onBack, onOpenCenter, onProctored, onOpenAssess, onSche
     const needsReserve = c.needsReserve && !reserved;
     const durMs = edParseDuration(c.time);
     const ghostBtn = { display: "inline-flex", alignItems: "center", gap: 7, background: "var(--card)", color: eMID, border: "1.5px solid " + eMID, borderRadius: 10, padding: "9px 17px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" };
-    const solidBtn = { display: "inline-flex", alignItems: "center", gap: 7, background: "var(--primary)", color: "var(--on-accent)", border: "none", borderRadius: 10, padding: "9px 18px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" };
+    const solidBtn = { display: "inline-flex", alignItems: "center", gap: 7, background: "var(--action)", color: "var(--action-text)", border: "none", borderRadius: 10, padding: "9px 18px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" };
     if (done) {
       return (
         <div key={c.id} className="ed-center-card" style={{ background: "var(--card)", border: "1px solid " + eLINE, borderRadius: 16, padding: "26px 28px", marginBottom: last ? 30 : 22, boxShadow: "0 1px 3px rgba(0,15,71,.04)" }}>
@@ -648,7 +648,7 @@ function EdTasks({ prog, onBack, onOpenCenter, onProctored, onOpenAssess, onSche
         <p style={{ fontFamily: "var(--sans)", fontSize: 15, color: eINK, lineHeight: 1.6, margin: "0 0 30px", maxWidth: 480 }}>{body}</p>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
           {primaryLabel &&
-            <button onClick={onPrimary} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--primary)", color: "var(--on-accent)", border: "none", borderRadius: 10, padding: "12px 22px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>{primaryLabel} <I.arrow size={16} /></button>}
+            <button onClick={onPrimary} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--action)", color: "var(--action-text)", border: "none", borderRadius: 10, padding: "12px 22px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>{primaryLabel} <I.arrow size={16} /></button>}
           {secondaryLabel &&
             <button onClick={onSecondary} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "transparent", color: eMID, border: "1.5px solid " + eMID, borderRadius: 10, padding: "12px 22px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>{secondaryLabel}</button>}
         </div>
@@ -737,8 +737,8 @@ function EdTasks({ prog, onBack, onOpenCenter, onProctored, onOpenAssess, onSche
                   {/* stepper header */}
                   <div className="ed-seqstep" style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
                     <span style={{ width: 28, height: 28, borderRadius: "50%", flexShrink: 0, display: "inline-flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700,
-                      background: sDone ? eSUCCESS : sLocked ? "var(--card)" : prog.accent,
-                      color: sLocked ? eMUT : "var(--on-accent)", border: sLocked ? "1.5px solid " + eLINE : "none" }}>{sDone ? <I.check size={15} /> : i + 1}</span>
+                      background: sDone ? eSUCCESS : sLocked ? "var(--card)" : eGOLD,
+                      color: sLocked ? eMUT : sDone ? "var(--on-accent)" : "#fff", border: sLocked ? "1.5px solid " + eLINE : "none" }}>{sDone ? <I.check size={15} /> : i + 1}</span>
                     {i !== seq.length - 1 && <div className="ed-seqline" style={{ flex: 1, height: 2, borderRadius: 1, marginLeft: 4, background: sDone ? eSUCCESS : eLINE }} />}
                   </div>
                   <div className="ed-seqbody" style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column" }}>
@@ -852,7 +852,7 @@ function EdCenter({ center, onBack, onProctored, onOpenAssess, onReserve }) {
             <div key={a.id} className="ed-seqcell" style={{ display: "flex", flexDirection: "column" }}>
               <div className="ed-seqstep" style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
                 <span style={{ width: 28, height: 28, borderRadius: "50%", flexShrink: 0, display: "inline-flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700,
-                  background: a._status === "complete" ? eSUCCESS : a._status === "locked" ? "var(--card)" : ePURP,
+                  background: a._status === "complete" ? eSUCCESS : a._status === "locked" ? "var(--card)" : eGOLD,
                   color: a._status === "locked" ? eMUT : a._status === "complete" ? "var(--on-accent)" : "#fff", border: a._status === "locked" ? "1.5px solid " + eLINE : "none" }}>{a._status === "complete" ? <I.check size={15} /> : i + 1}</span>
                 {i !== seqActs.length - 1 && <div className="ed-seqline" style={{ flex: 1, height: 2, borderRadius: 1, marginLeft: 4, background: a._status === "complete" ? eSUCCESS : eLINE }} />}
               </div>

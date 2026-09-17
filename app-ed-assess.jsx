@@ -502,7 +502,7 @@ function OaQuestionCard({ q, number, value, onChange, error, hidePrompt, narrow 
       {q.type === "ranklist" && (() => {
         const order = (Array.isArray(value) && value.length) ? value : q.items;
         const move = (dir) => { if (rankListSel == null) return; const i = order.indexOf(rankListSel); const j = i + dir; if (i < 0 || j < 0 || j >= order.length) return; const n = order.slice(); const t = n[i]; n[i] = n[j]; n[j] = t; onChange(n); };
-        const arrowBtn = (dir, label) => <button onClick={() => move(dir)} aria-label={label} style={{ width: 44, height: 44, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 8, border: "none", background: "var(--primary)", color: "var(--on-accent)", cursor: "pointer" }}><I.chevD size={18} style={{ transform: dir < 0 ? "rotate(180deg)" : "none" }} /></button>;
+        const arrowBtn = (dir, label) => <button onClick={() => move(dir)} aria-label={label} style={{ width: 44, height: 44, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 8, border: "none", background: "var(--action)", color: "var(--action-text)", cursor: "pointer" }}><I.chevD size={18} style={{ transform: dir < 0 ? "rotate(180deg)" : "none" }} /></button>;
         return (
           <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
             <div style={{ flex: 1, minWidth: 0, border: "1px solid var(--field-line)", borderRadius: 12, overflow: "hidden", background: eCARD }}>
