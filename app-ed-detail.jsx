@@ -1902,8 +1902,8 @@ function ScVideoLive({ setResult, onBack, onNext, vertical, panel, embed, onCapt
               <div style={barRow}>
                 {mob ? <div style={slotL} /> : <div />}
                 <button disabled={vstate === "countdown"} onClick={() => { setDevMenu(null); setVstate("countdown"); }}
-                  style={{ justifySelf: "center", display: "inline-flex", alignItems: "center", gap: mob ? 6 : 8, background: "#DCE6F5", color: eMID, border: "1.5px solid #DCE6F5", borderRadius: 8, padding: mob ? "8px 14px" : "9px 22px", fontFamily: "var(--sans)", fontSize: mob ? 13 : 15, fontWeight: 700, cursor: vstate === "countdown" ? "default" : "pointer", opacity: vstate === "countdown" ? 0.55 : 1, whiteSpace: "nowrap" }}>
-                  <I.cam size={mob ? 15 : 17} /> Record
+                  style={{ justifySelf: "center", display: "inline-flex", alignItems: "center", gap: mob ? 6 : 8, background: "var(--card)", color: eMID, border: "1.5px solid " + eLINE, borderRadius: 8, padding: mob ? "8px 14px" : "9px 22px", fontFamily: "var(--sans)", fontSize: mob ? 13 : 15, fontWeight: 700, cursor: vstate === "countdown" ? "default" : "pointer", opacity: vstate === "countdown" ? 0.55 : 1, whiteSpace: "nowrap" }}>
+                  <span style={{ display: "inline-flex", color: "var(--accent)" }}><I.cam size={mob ? 15 : 17} /></span> Record
                 </button>
                 {mob ? <div style={slotR}>{devBtn("mic")}{devBtn("cam")}</div> : devControls}
               </div>
