@@ -1889,7 +1889,7 @@ function EdOpenAssess({ exercise, onExit, onBack, onNext, hasNext, nextEx, initi
                 </div>
                 {qIdx < total - 1 ?
                   <EdBtn primary onClick={() => { if (validate([curQ])) setQIdx(qIdx + 1); }}>Next <I.arrow size={16} /></EdBtn> :
-                  <button onClick={() => { if (validate([curQ])) setStep("complete"); }} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, background: "var(--primary)", color: "#fff", border: "none", borderRadius: 10, padding: "12px 26px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>Submit <I.check size={16} /></button>
+                  <button onClick={() => { if (validate([curQ])) setStep("complete"); }} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, background: eGOLD, color: "#fff", border: "none", borderRadius: 10, padding: "12px 26px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>Submit <I.check size={16} /></button>
                 }
               </div>
             </div>
@@ -1941,7 +1941,7 @@ function EdOpenAssess({ exercise, onExit, onBack, onNext, hasNext, nextEx, initi
             </div>
             {page < pages - 1 ?
               <EdBtn primary onClick={() => { if (validate(pageItems)) setPage(page + 1); }}>Next <I.arrow size={16} /></EdBtn> :
-              <button onClick={() => { if (validate(pageItems)) setStep("complete"); }} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, background: "var(--primary)", color: "#fff", border: "none", borderRadius: 10, padding: "12px 26px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>Submit <I.check size={16} /></button>
+              <button onClick={() => { if (validate(pageItems)) setStep("complete"); }} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, background: eGOLD, color: "#fff", border: "none", borderRadius: 10, padding: "12px 26px", fontFamily: "var(--sans)", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>Submit <I.check size={16} /></button>
             }
           </div>
         </div>

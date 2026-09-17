@@ -1566,7 +1566,7 @@ function ScVideo({ setResult, onBack, onNext, onStep, vertical }) {
       </svg>
     </div>
   );
-  const chip = (icon, label) => <span style={{ background: "#DCE6F5", color: eMID, borderRadius: 8, padding: "5px 10px", fontFamily: "var(--sans)", fontSize: 11.5, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 6 }}>{icon} {label}</span>;
+  const chip = (icon, label) => <span style={{ background: "var(--status-neutral-bg)", color: eMID, borderRadius: 8, padding: "5px 10px", fontFamily: "var(--sans)", fontSize: 11.5, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 6 }}>{icon} {label}</span>;
 
   if (vstate === "permission") {
     return (
@@ -1823,15 +1823,15 @@ function ScVideoLive({ setResult, onBack, onNext, vertical, panel, embed, onCapt
 
   const media = { position: "relative", width: "100%", background: "linear-gradient(160deg,#242424,#141414)", borderRadius: 14, overflow: "hidden", aspectRatio: panel ? "3 / 2" : mob ? "4 / 3" : "16 / 9" };
   const overlay = { position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: mob ? 12 : 16, textAlign: "center", padding: mob ? 16 : 24, color: "#fff", zIndex: 2 };
-  const chip = (icon, label) => <span title={label} style={{ background: "#DCE6F5", color: eMID, borderRadius: 8, padding: "5px 10px", fontFamily: "var(--sans)", fontSize: 11.5, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 6, maxWidth: 200, minWidth: 0 }}><span style={{ flexShrink: 0, display: "flex" }}>{icon}</span><span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", minWidth: 0 }}>{label}</span></span>;
+  const chip = (icon, label) => <span title={label} style={{ background: "var(--status-neutral-bg)", color: eMID, borderRadius: 8, padding: "5px 10px", fontFamily: "var(--sans)", fontSize: 11.5, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 6, maxWidth: 200, minWidth: 0 }}><span style={{ flexShrink: 0, display: "flex" }}>{icon}</span><span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", minWidth: 0 }}>{label}</span></span>;
   const liveVideo = <video ref={videoRef} autoPlay muted playsInline style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transform: "scaleX(-1)", zIndex: 0 }} />;
 
   const ctrlBar = { position: "absolute", left: 0, right: 0, bottom: 0, zIndex: 4 };
   // Mobile uses flex with flex:1 side slots (grid misrenders on some devices); the
   // center button (Record/Stop) stays truly centered and identical between states.
   const barRow = mob
-    ? { background: eMID, display: "flex", alignItems: "center", gap: 8, padding: "7px 9px" }
-    : { background: eMID, display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", gap: 8, padding: "10px 12px", minHeight: 36 };
+    ? { background: eGOLD, display: "flex", alignItems: "center", gap: 8, padding: "7px 9px" }
+    : { background: eGOLD, display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", gap: 8, padding: "10px 12px", minHeight: 36 };
   const slotL = { flex: mob ? 1 : undefined, minWidth: 0, display: "flex", alignItems: "center" };
   const slotR = { flex: mob ? 1 : undefined, minWidth: 0, display: "flex", alignItems: "center", justifyContent: "flex-end", gap: mob ? 6 : 8 };
   const devBtn = (kind) => (
