@@ -541,7 +541,7 @@ function AssessorEditorial() {
   }[s] || NEUTRAL);
   const StatusPill = ({s}) => {
     const cfg = statusStyle(s);
-    return <span style={{fontFamily:f,fontSize:14,fontWeight:400,color:cfg.c,background:cfg.bg,border:`1px solid ${cfg.br||cfg.c}`,boxSizing:"border-box",padding:"4px 11px",borderRadius:6,whiteSpace:"nowrap"}}>{s}</span>;
+    return <span style={{fontFamily:f,fontSize:14,fontWeight:400,color:"var(--ink)",background:cfg.bg,border:`1px solid ${cfg.br||cfg.c}`,boxSizing:"border-box",padding:"4px 11px",borderRadius:2,whiteSpace:"nowrap"}}>{s}</span>;
   };
 
   // ═══════ SIDEBAR + TOPBAR ═══════

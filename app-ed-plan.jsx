@@ -500,15 +500,15 @@ function plDiff(plan) {
 const PL_STATUS = {
   // MDS Badge soft-background variants: Neutral outline / Notice / Informative /
   // Positive / Negative. Colours are the exact MDS hues; fill = 85%-white tint.
-  notstarted: { label: "Not Started", color: "var(--ink)", bg: "var(--status-neutral-bg)", icon: null },
-  draft: { label: "Draft", color: "var(--ink)", bg: "var(--status-neutral-bg)", icon: null },
-  pending: { label: "Pending Approval", color: "#CB7E03", bg: "color-mix(in srgb, #CB7E03 15%, var(--card))", icon: "clock" },
+  notstarted: { label: "Not Started", color: "var(--ink)", border: "#94918C", bg: "var(--status-neutral-bg)", icon: null },
+  draft: { label: "Draft", color: "var(--ink)", border: "#94918C", bg: "var(--status-neutral-bg)", icon: null },
+  pending: { label: "Pending Approval", color: "var(--ink)", border: "#CB7E03", bg: "color-mix(in srgb, #CB7E03 15%, var(--card))", icon: "clock" },
   // The manager has opened the plan for review — no longer just queued.
-  review: { label: "In Review", color: "var(--accent)", bg: "color-mix(in srgb, var(--accent) 15%, var(--card))", icon: "eye" },
-  approved: { label: "Approved", color: "#14853D", bg: "color-mix(in srgb, #14853D 15%, var(--card))", icon: "checkCircle" },
-  rejected: { label: "Rejected", color: "#C53532", bg: "color-mix(in srgb, #C53532 15%, var(--card))", icon: "alertCircle" },
+  review: { label: "In Review", color: "var(--ink)", border: "var(--accent)", bg: "color-mix(in srgb, var(--accent) 15%, var(--card))", icon: "eye" },
+  approved: { label: "Approved", color: "var(--ink)", border: "#14853D", bg: "color-mix(in srgb, #14853D 15%, var(--card))", icon: "checkCircle" },
+  rejected: { label: "Rejected", color: "var(--ink)", border: "#C53532", bg: "color-mix(in srgb, #C53532 15%, var(--card))", icon: "alertCircle" },
   // The owner's own marker once they've finished the work — not a manager decision.
-  completed: { label: "Completed", color: "#14853D", bg: "color-mix(in srgb, #14853D 15%, var(--card))", icon: "checkCircle" },
+  completed: { label: "Completed", color: "var(--ink)", border: "#14853D", bg: "color-mix(in srgb, #14853D 15%, var(--card))", icon: "checkCircle" },
 };
 // The badge itself — same pill wherever a plan status is shown.
 function PlStatusBadge({ status, size = 14 }) {
@@ -516,7 +516,7 @@ function PlStatusBadge({ status, size = 14 }) {
   const Ic = s.icon && I[s.icon];
   return (
     <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: "var(--sans)", fontSize: size,
-      fontWeight: 400, color: s.color, background: s.bg, padding: "4px 11px", borderRadius: 6, whiteSpace: "nowrap" }}>
+      fontWeight: 400, color: s.color, background: s.bg, border: "1px solid " + s.border, padding: "4px 11px", borderRadius: 2, whiteSpace: "nowrap" }}>
       {Ic ? <Ic size={size} /> : null}{s.label}
     </span>
   );
@@ -1584,7 +1584,7 @@ function EdPlanPage({ onBack, onRestart, startLocked }) {
                         <li key={i} style={{ fontFamily: "var(--sans)", fontSize: 13, color: eINK, lineHeight: 1.9 }}>
                           {c.kind === "added" ? "Added" : c.kind === "removed" ? "Removed" : "Modified"}{" "}
                           {c.scope === "skill" ? "Skill" : "Development Action"}:{" "}
-                          <span className="pl-chg-badge" style={{ background: c.kind === "added" ? "color-mix(in srgb, var(--accent) 15%, var(--card))" : c.kind === "removed" ? "color-mix(in srgb, var(--danger) 15%, var(--card))" : "color-mix(in srgb, #CB7E03 15%, var(--card))", color: c.kind === "added" ? "var(--accent)" : c.kind === "removed" ? "var(--danger)" : "#CB7E03", padding: "1px 8px", borderRadius: 6, boxDecorationBreak: "clone", WebkitBoxDecorationBreak: "clone" }}>{c.label}</span>
+                          <span className="pl-chg-badge" style={{ background: c.kind === "added" ? "color-mix(in srgb, var(--accent) 15%, var(--card))" : c.kind === "removed" ? "color-mix(in srgb, var(--danger) 15%, var(--card))" : "color-mix(in srgb, #CB7E03 15%, var(--card))", color: "var(--ink)", border: "1px solid " + (c.kind === "added" ? "var(--accent)" : c.kind === "removed" ? "var(--danger)" : "#CB7E03"), padding: "1px 8px", borderRadius: 2, boxDecorationBreak: "clone", WebkitBoxDecorationBreak: "clone" }}>{c.label}</span>
                         </li>
                       ))}
                     </ul>

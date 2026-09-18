@@ -251,7 +251,7 @@ const MgrTag = ({ kind }) => {
     New:    { c: "var(--accent)", b: "color-mix(in srgb, var(--accent) 15%, var(--card))" },
   };
   const m = map[kind] || map.Edited;
-  return <span style={{ background: m.b, color: m.c, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, padding: "4px 11px", borderRadius: 6, whiteSpace: "nowrap" }}>{kind}</span>;
+  return <span style={{ background: m.b, color: "var(--ink)", border: "1px solid " + m.c, fontFamily: "var(--sans)", fontSize: 15, fontWeight: 400, padding: "4px 11px", borderRadius: 2, whiteSpace: "nowrap" }}>{kind}</span>;
 };
 
 const MgrAvatar = ({ p, size = 42 }) => (
@@ -409,7 +409,7 @@ function MgrSummaryPanel({ person, onDecide, onOpen }) {
               <li key={i} style={{ fontFamily: "var(--sans)", fontSize: 13, color: eINK, lineHeight: 1.9 }}>
                 {c.kind === "added" ? "Added" : c.kind === "removed" ? "Removed" : "Modified"}{" "}
                 {c.scope === "skill" ? "Skill" : "Development Action"}:{" "}
-                <span style={{ background: c.kind === "added" ? "color-mix(in srgb, var(--accent) 15%, var(--card))" : c.kind === "removed" ? "color-mix(in srgb, var(--danger) 15%, var(--card))" : "color-mix(in srgb, #CB7E03 15%, var(--card))", color: c.kind === "added" ? "var(--accent)" : c.kind === "removed" ? "var(--danger)" : "#CB7E03", padding: "1px 8px", borderRadius: 6 }}>{c.label}</span>
+                <span style={{ background: c.kind === "added" ? "color-mix(in srgb, var(--accent) 15%, var(--card))" : c.kind === "removed" ? "color-mix(in srgb, var(--danger) 15%, var(--card))" : "color-mix(in srgb, #CB7E03 15%, var(--card))", color: "var(--ink)", border: "1px solid " + (c.kind === "added" ? "var(--accent)" : c.kind === "removed" ? "var(--danger)" : "#CB7E03"), padding: "1px 8px", borderRadius: 2 }}>{c.label}</span>
               </li>
             ))}
           </ul>
@@ -498,7 +498,7 @@ function MgrChangePanel({ person, changes, onClose, onSkill }) {
               {groups[skill].map((c, i) => (
                 <li key={i} style={{ fontFamily: "var(--sans)", fontSize: 13, color: eINK, lineHeight: 1.85 }}>
                   {c.kind === "added" ? "Added" : c.kind === "removed" ? "Removed" : "Modified"}{" "}{c.scope === "skill" ? "Skill" : "Development Action"}:{" "}
-                  <span style={{ background: c.kind === "added" ? "color-mix(in srgb, var(--accent) 15%, var(--card))" : c.kind === "removed" ? "color-mix(in srgb, var(--danger) 15%, var(--card))" : "color-mix(in srgb, #CB7E03 15%, var(--card))", color: c.kind === "added" ? "var(--accent)" : c.kind === "removed" ? "var(--danger)" : "#CB7E03", padding: "1px 8px", borderRadius: 6 }}>{c.label}</span>
+                  <span style={{ background: c.kind === "added" ? "color-mix(in srgb, var(--accent) 15%, var(--card))" : c.kind === "removed" ? "color-mix(in srgb, var(--danger) 15%, var(--card))" : "color-mix(in srgb, #CB7E03 15%, var(--card))", color: "var(--ink)", border: "1px solid " + (c.kind === "added" ? "var(--accent)" : c.kind === "removed" ? "var(--danger)" : "#CB7E03"), padding: "1px 8px", borderRadius: 2 }}>{c.label}</span>
                 </li>
               ))}
             </ul>
@@ -850,7 +850,7 @@ function MgrDetail({ person, onBack, onDecide, showToast, self }) {
                             <li key={i} style={{ fontFamily: "var(--sans)", fontSize: 13, color: eINK, lineHeight: 1.9 }}>
                               {c.kind === "added" ? "Added" : c.kind === "removed" ? "Removed" : "Modified"}{" "}
                               {c.scope === "skill" ? "Skill" : "Development Action"}:{" "}
-                              <span style={{ background: c.kind === "added" ? "color-mix(in srgb, var(--accent) 15%, var(--card))" : c.kind === "removed" ? "color-mix(in srgb, var(--danger) 15%, var(--card))" : "color-mix(in srgb, #CB7E03 15%, var(--card))", color: c.kind === "added" ? "var(--accent)" : c.kind === "removed" ? "var(--danger)" : "#CB7E03", padding: "1px 8px", borderRadius: 6 }}>{c.label}</span>
+                              <span style={{ background: c.kind === "added" ? "color-mix(in srgb, var(--accent) 15%, var(--card))" : c.kind === "removed" ? "color-mix(in srgb, var(--danger) 15%, var(--card))" : "color-mix(in srgb, #CB7E03 15%, var(--card))", color: "var(--ink)", border: "1px solid " + (c.kind === "added" ? "var(--accent)" : c.kind === "removed" ? "var(--danger)" : "#CB7E03"), padding: "1px 8px", borderRadius: 2 }}>{c.label}</span>
                             </li>
                           ))}
                         </ul>
