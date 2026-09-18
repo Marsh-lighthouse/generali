@@ -32,7 +32,7 @@
       varsDark: { "--primary": "#F0A6A2", "--accent": "#FF8A85", "--action": "#D23A34", "--action-text": "#FFFFFF" },
       logo: "brand/clients/generali.svg", logoWhite: "brand/clients/generali-white.svg",
       icon: "brand/clients/generali-icon.svg", iconWhite: "brand/clients/generali-icon-white.svg",
-      railLogoH: 56, railIconH: 30, loginAlt: "Generali",
+      railLogoH: 56, railIconH: 22, loginAlt: "Generali",
       // Login screen only: transparent people-collage PNG over the primary red
       loginPhoto: "brand/clients/generali-login.png"
     }
